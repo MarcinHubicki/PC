@@ -127,9 +127,9 @@ void Hash_table::Print()
 					//text
 					cout << Entery_Table[i]._text;
 					//space
-					cout << " ";
+				//	cout << " ";
 					//chain
-					cout << Entery_Table[i]._chain;
+				//	cout << Entery_Table[i]._chain;
 					cout << endl;
 				}
 		}
