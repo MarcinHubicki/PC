@@ -127,9 +127,9 @@ void Hash_table::Print()
 					//text
 					cout << Entery_Table[i]._text;
 					//space
-				//	cout << " ";
+					cout << " ";
 					//chain
-				//	cout << Entery_Table[i]._chain;
+					cout << Entery_Table[i]._chain;
 					cout << endl;
 				}
 		}
@@ -155,52 +155,53 @@ void Hash_table::qdelete(Entery & entery)
 
 void Hash_table::Delete(const long & key)
 {
-	long j=0, k;
-	Entery tmp,tmp2;
-	long deleted_ind,k_ind;
+	long j=0;
+	Entery tmp;
+	long k_ind;
 
 	for (int i = 0; i < _size; i++)
 	{
 		if (Entery_Table[i]._key == key)
-		{
-			deleted_ind = Get_index(Entery_Table[i]._key, _size);
-			j = deleted_ind;
-			
-			qdelete(Entery_Table[i]);
-
-			while (j<_size)
+		{	
+			if (Entery_Table[i]._chain == Chain::Chained)
 			{
-				k = j;
-				//next = j + 1;
-				tmp = Entery_Table[j];
+				qdelete(Entery_Table[i]);
 
-					if (tmp._key != -1)
-					{
-						if(tmp._chain==Chain::Chained)
-						{
-							//k++;
-							k_ind = Get_index(k, _size);
-								while (Entery_Table[k_ind]._chain == Chain::Chained)
-								{
-									tmp2 = Entery_Table[k_ind];
-									qdelete(Entery_Table[k_ind]);
-									Add(tmp2);
-									k++;
-									k_ind = Get_index(k, _size);
-								}
+				k_ind = i+1;
+				k_ind = Get_index(k_ind, _size);
 
-								tmp2 = Entery_Table[k_ind];
-								qdelete(Entery_Table[k_ind]);
-								Add(tmp2);
-						}
-						else
-						{
-							qdelete(Entery_Table[j]);
-							Add(tmp);
-						}
-					}//if
-					j++;
-			}//while
+				while (Entery_Table[k_ind]._chain == Chain::Chained)
+				{
+					tmp = Entery_Table[k_ind];
+					qdelete(Entery_Table[k_ind]);
+					Add(tmp);
+
+					k_ind++;
+					k_ind = Get_index(k_ind, _size);
+				}//while
+				tmp = Entery_Table[k_ind];
+				qdelete(Entery_Table[k_ind]);
+				Add(tmp);
+			}//if
+			else
+			{
+				if (i == 0)
+				{
+					k_ind = _size - 1;
+				}//if
+				else
+				{
+					k_ind = i - 1;
+				}//else
+
+				if (Entery_Table[k_ind]._chain == Chain::Chained)
+				{
+					Entery_Table[k_ind]._chain = Chain::Full;
+					qdelete(Entery_Table[i]);
+
+				}//if
+				qdelete(Entery_Table[i]);
+			}//else
 		}//if
 	}//for
 }//method
@@ -208,8 +209,6 @@ void Hash_table::Delete(const long & key)
 Hash_table::Hash_table()
 {
 	//only makes an instance. Initialization is made in Set_size
-
-
 }//method
 
 void Hash_table::Set_Size(const int & size)
@@ -539,6 +538,57 @@ for( long i=0; i<Cases; i++)
 //
 //				j++;
 //				if (j == deleted_ind) { break; }
+//			}//while
+//		}//if
+//	}//for
+//}//method
+//void Hash_table::Delete(const long & key)
+//{
+//	long j = 0, k;
+//	Entery tmp, tmp2;
+//	long deleted_ind, k_ind;
+//
+//	for (int i = 0; i < _size; i++)
+//	{
+//		if (Entery_Table[i]._key == key)
+//		{
+//			deleted_ind = Get_index(i, _size);
+//			j = deleted_ind;//zlee
+//
+//			qdelete(Entery_Table[i]);
+//
+//			while (j<_size)
+//			{
+//				k = j;
+//				//next = j + 1;
+//				tmp = Entery_Table[j];
+//
+//				if (tmp._key != -1)
+//				{
+//					if (tmp._chain == Chain::Chained)
+//					{
+//						//k++;
+//						k_ind = Get_index(k, _size);
+//						while (Entery_Table[k_ind]._chain == Chain::Chained)
+//						{
+//							tmp2 = Entery_Table[k_ind];
+//							qdelete(Entery_Table[k_ind]);
+//							Add(tmp2);
+//							k++;
+//							k_ind = Get_index(k, _size);
+//						}
+//
+//						tmp2 = Entery_Table[k_ind];
+//						qdelete(Entery_Table[k_ind]);
+//						Add(tmp2);
+//					}
+//					else
+//					{
+//						qdelete(Entery_Table[j]);
+//						Add(tmp);
+//					}
+//				}//if
+//				j++;
 //			}//while
 //		}//if
 //	}//for

@@ -1,0 +1,17 @@
+1
+size 10
+add 1 a
+add 2 b
+add 0 c
+add 3 d
+add 4 e
+add 5 f
+add 12 g
+add 14 h
+print
+delete 12
+print
+add 12 a
+print
+stop
+
