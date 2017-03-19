@@ -1,0 +1,10 @@
+﻿  Hash_Table.cpp
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(22): error C2146: syntax error: missing ')' before identifier 'O1'
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(22): error C3646: 'O1': unknown override specifier
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(22): error C2062: type 'int' unexpected
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(22): error C2059: syntax error: ')'
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(23): error C2143: syntax error: missing ';' before '{'
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(23): error C2447: '{': missing function header (old-style formal list?)
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(34): error C2065: 'n': undeclared identifier
+d:\users\marcin.hubicki\documents\visual studio 2015\projects\hash_table.cpp(41): error C3863: array type 'char [8]' is not assignable
