@@ -1,18 +1,15 @@
 /*----------------------------------------------------------------------------------------------------
 								PROJECT HASH_TABLE
 Started version 1.0 on : 21.02.2017
-Last Update: version 1.5 on : 10.03.2017
+Last Update: version 1.6 on : 19.03.2017
 What is new:
 
 -Script reading added
--fixed deleteing
--fixed no parameter constructor
--changed Set_size()
--added most of the comments
--constructor with parameter was scrapped
-
+-remade delete()
+-fixed Print()
 To do:
--change Print() to show only necessary info. for the task
+?
+
 
 Made by Marcin Hubicki
 ----------------------------------------------------------------------------------------------------*/
@@ -127,9 +124,9 @@ void Hash_table::Print()
 					//text
 					cout << Entery_Table[i]._text;
 					//space
-					cout << " ";
+				//	cout << " ";
 					//chain
-					cout << Entery_Table[i]._chain;
+				//	cout << Entery_Table[i]._chain;
 					cout << endl;
 				}
 		}
