@@ -1,60 +1,113 @@
 #include <iostream>
+#include <algorithm>
 
 using std::cin;
 using std::cout;
-using std::endl;
+using std::swap;
 
-void Heap( int  Tab[5], int i, int n)
+void view(int *Tab, int capacity)
 {
-
-		int left, right, largest;
-		int tmp;
-
-		left = 2 * i;
-		right = (2 * i) + 1;
-
-		if (left <= n && Tab[left] > Tab[i])
-		{
-			largest = left;
-		}
-		else
-		{
-			largest = i;
-		}
-
-		if (right <= n && Tab[right] > Tab[largest])
-		{
-			largest = right;
-		}
-
-		if (largest != i)
-		{
-			tmp = Tab[i];
-			Tab[i] = Tab[largest];
-			Tab[largest] = tmp;
-			Heap(Tab, largest, n);
-		}
-
-		
+	int i = 1;
+	while (i < capacity+1 )
+	{
+		cout << Tab[i] << " ";
+		i++;
 	}
+	cout << std::endl;
+}
+
+
+void Heap(int * tab, int capacity)
+{
+	int iter = 2;
+	int tmp = iter;
+	while (iter <= capacity)
+	{
+		tmp = iter;
+		while (tab[tmp]>tab[tmp / 2] && tmp != 1)
+		{
+
+			swap(tab[tmp], tab[tmp / 2]);
+			view(tab, capacity);
+			tmp = tmp / 2;
+
+		}
+		iter++;
+	}
+}
+
+void Heap_sort(int * tab, int capacity)
+{
+	int i = 1, j = 1, tmp, tmp2;
+	int iter = capacity;
+
+	while (capacity > 1)
+	{
+
+		swap(tab[iter], tab[1]);
+		capacity--;
+
+		tmp = j * 2;
+		tmp2 = (j * 2) + 1;
+
+		while (tmp <= capacity && tmp2 <= capacity)// do poprawy 
+		{
+			tmp = j * 2;
+			tmp2 = (j * 2) + 1;
+
+			if (tab[tmp] > tab[tmp2])
+			{
+				swap(tab[j], tab[tmp]);
+
+			}
+			else
+			{
+				swap(tab[j], tab[tmp2]);
+
+			}
+			j++;
+		}
+		view(tab, capacity);
+	}
+	//	view(tab, capacity);
+}
+
+
 
 int main()
 {
 
-	int Cases,n;
+	int capacity, i = 1;
+	cin >> capacity;
 
+	int * Tab = new int[capacity + 1];
 
-	cin >> n;
-	int tab[5];
-	//int * tab=new int[n];
-
-	for (int i = 0; i < n; i++)
+	while (i < (capacity + 1))
 	{
-		cin >> tab[i];
+		cin >> Tab[i];
+		i++;
 	}
 
-	Heap( tab, (n / 2), n);
+	i = 1;
+	/*while (i < (capacity + 1))
+	{
+		cout << Tab[i] << " ";
+		i++;
+	}
+	cout << std::endl;*/
+	view(Tab, capacity);
+	Heap(Tab, capacity);
 
-	system("pause");
+	//i = 1;
+	//while (i < (capacity + 1))
+	//{
+	//	cout << Tab[i] << " ";
+	//	i++;
+	//}
+	//cout << std::endl;
+
+	Heap_sort(Tab, capacity);
+
+		system("pause");
 	return 0;
 }
