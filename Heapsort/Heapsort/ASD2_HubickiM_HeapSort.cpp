@@ -14,6 +14,7 @@ Made by Marcin Hubicki
 
 #include <iostream>
 #include <algorithm>
+#include <time.h>
 
 using std::cin;
 using std::cout;
@@ -28,6 +29,17 @@ void view(int *Tab, int capacity)
 		i++;
 	}
 	cout << std::endl;
+}
+
+void Get_Rands(int amount, int range, int * Tab)
+{
+	srand((unsigned)time(0));
+	
+	for (int i = 1; i <= amount; i++)
+	{
+		Tab[i] = rand() % (range + 1);// + (- (range/2));
+	}
+
 }
 
 
@@ -68,7 +80,7 @@ void Heap_sort(int * tab, int capacity)
 		tmp = j * 2;
 		tmp2 = (j * 2) + 1;
 
-		while (tmp <= capacity || tmp2 <= capacity)
+		while (tmp <= capacity || tmp2 <= capacity)// do sprawdzenia bo zle '^'
 		{
 
 			tmp = j * 2;
@@ -103,6 +115,28 @@ void Heap_sort(int * tab, int capacity)
 	view(tab, cpy_cap);
 }
 
+void Heap_sort2(int * tab, int capacity)
+{
+	capacity -= 1;
+	int cpy_cap = capacity;
+
+	int i = 1, j = 1, tmp, tmp2;
+	int iter = capacity;
+
+
+	while (capacity > 1)
+	{
+		j = 1;
+		swap(tab[iter], tab[1]);
+		capacity--;
+		Heap(tab, capacity);
+		view(tab, capacity);
+		iter--;
+
+	}
+	//view(tab, cpy_cap);
+}
+
 
 
 int main()
@@ -120,6 +154,7 @@ int main()
 
 		int * Tab = new int[capacity];
 
+//		Get_Rands(capacity-1, 10000, Tab);
 		while (i < capacity)
 		{
 			cin >> Tab[i];
@@ -127,13 +162,18 @@ int main()
 		}
 
 		view(Tab, capacity - 1);
+		cout << std::endl;
+
 		Heap(Tab, capacity);
 		view(Tab, capacity - 1);
 
+		cout << std::endl;
 		Heap_sort(Tab, capacity);
+	//	view(Tab, capacity - 1);
 
 		cout << std::endl;
 		delete [] Tab;
 	}
+
 	return 0;
 }
