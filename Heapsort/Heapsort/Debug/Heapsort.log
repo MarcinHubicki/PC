@@ -1,5 +1,5 @@
 ﻿  ASD2_HubickiM_HeapSort.cpp
-c:\users\pecet\documents\github\pc\heapsort\heapsort\asd2_hubickim_heapsort.cpp(123): warning C4101: 'tmp': unreferenced local variable
-c:\users\pecet\documents\github\pc\heapsort\heapsort\asd2_hubickim_heapsort.cpp(123): warning C4101: 'tmp2': unreferenced local variable
+c:\users\pecet\documents\github\pc\heapsort\heapsort\asd2_hubickim_heapsort.cpp(141): warning C4101: 'tmp': unreferenced local variable
+c:\users\pecet\documents\github\pc\heapsort\heapsort\asd2_hubickim_heapsort.cpp(141): warning C4101: 'tmp2': unreferenced local variable
   Heapsort.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\Heapsort\Debug\Heapsort.exe
   Heapsort.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\Heapsort\Debug\Heapsort.pdb (Full PDB)
