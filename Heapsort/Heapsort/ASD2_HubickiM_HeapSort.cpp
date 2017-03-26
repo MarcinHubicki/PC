@@ -172,20 +172,20 @@ int main()
 
 		int * Tab = new int[capacity];
 
-		Get_Rands(capacity-1, 10000, Tab);
-		//while (i < capacity)
-		//{
-		//	cin >> Tab[i];
-		//	i++;
-		//}
+		//Get_Rands(capacity-1, 10000, Tab);
+		while (i < capacity)
+		{
+			cin >> Tab[i];
+			i++;
+		}
 
-		view(Tab, capacity - 1);
-		cout << std::endl;
+	//	view(Tab, capacity - 1);
+		//cout << std::endl;
 
 		Heap(Tab, capacity);
-		view(Tab, capacity - 1);
+	//	view(Tab, capacity - 1);
 
-		cout << std::endl;
+	//	cout << std::endl;
 		Heap_sort(Tab, capacity);
 	//	view(Tab, capacity - 1);
 
