@@ -23,7 +23,7 @@ using std::swap;
 void view(int *Tab, int capacity)
 {
 	int i = 1;
-	while (i < capacity+1 )
+	while (i < capacity + 1)
 	{
 		cout << Tab[i] << " ";
 		i++;
@@ -34,7 +34,7 @@ void view(int *Tab, int capacity)
 void Get_Rands(int amount, int range, int * Tab)
 {
 	srand((unsigned)time(0));
-	
+
 	for (int i = 1; i <= amount; i++)
 	{
 		Tab[i] = rand() % (range + 1);// + (- (range/2));
@@ -52,7 +52,7 @@ void Heap(int * tab, int capacity)
 	{
 		tmp = iter;
 
-		while (tab[tmp]>tab[tmp / 2] && tmp != 1)
+		while (tab[tmp] > tab[tmp / 2] && tmp != 1)
 		{
 
 			swap(tab[tmp], tab[tmp / 2]);
@@ -80,16 +80,17 @@ void Heap_sort(int * tab, int capacity)
 		tmp = j * 2;
 		tmp2 = (j * 2) + 1;
 
-		while (tmp <= capacity || tmp2 <= capacity)// do sprawdzenia bo zle '^'
+		while (tmp <= capacity || tmp2 <= capacity)
 		{
 
 			tmp = j * 2;
-			if ( tmp >= capacity)// tu moze byc blad
+			if (tmp >= capacity)
 			{
 				if (tmp > capacity)
 				{
 					break;
 				}
+
 				if (tmp == capacity)
 				{
 					if (tab[capacity] > tab[j])
@@ -101,34 +102,34 @@ void Heap_sort(int * tab, int capacity)
 					{
 						break;
 					}
-
 				}
-				//if (tab[j] < tab[capacity])
-				//{
-				//	//swap(tab[j], tab[capacity]);
-				//	break;
-				//}
-				//else
-				//{
-				//	break;
-				//}
 			}
 			tmp2 = (j * 2) + 1;
-
-			if (tab[tmp] > tab[tmp2])
+			//zmienic na porównanie aktualnego z wiekszym ???
+			if (tab[tmp] >= tab[tmp2])
 			{
-				swap(tab[j], tab[tmp]);
-				j = tmp;
+				if (tab[j] <= tab[tmp])
+				{
+					swap(tab[j], tab[tmp]);
+					j = tmp;
+				}
+				else break;
 			}
 			else
 			{
-				swap(tab[j], tab[tmp2]);
-				j = tmp2;
+				if (tab[j] <= tab[tmp2])
+				{
+					swap(tab[j], tab[tmp2]);
+					j = tmp2;
+				}
+				else break;
 			}
-			//j++;
 		}
 		iter--;
-		view(tab, capacity);
+		if (capacity >= 2)
+		{
+			view(tab, capacity);
+		}
 	}
 	view(tab, cpy_cap);
 }
@@ -172,18 +173,18 @@ int main()
 
 		int * Tab = new int[capacity];
 
-		//Get_Rands(capacity-1, 10000, Tab);
-		while (i < capacity)
-		{
-			cin >> Tab[i];
-			i++;
-		}
+		Get_Rands(capacity-1, 10000, Tab);
+		//while (i < capacity)
+		//{
+		//	cin >> Tab[i];
+		//	i++;
+		//}
 
-	//	view(Tab, capacity - 1);
+		//view(Tab, capacity - 1);
 		//cout << std::endl;
 
 		Heap(Tab, capacity);
-	//	view(Tab, capacity - 1);
+		view(Tab, capacity - 1);
 
 	//	cout << std::endl;
 		Heap_sort(Tab, capacity);
