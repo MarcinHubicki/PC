@@ -147,8 +147,10 @@ void Full_return(int ** Tower, const int & floors, const int & slots, int & Time
 				{
 					Return_car(Tower, i, slots, j, Time);
 					if (i > 0) { Time =Time + (i* 10); }
+					//cout << "returned :" << iter;
 					iter++;
-					break;
+					j = slots;
+					i = floors;
 				}
 			}
 		}
