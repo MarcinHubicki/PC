@@ -2,10 +2,11 @@
 PROJECT: Minimal Spanning Tree
 
 Started on 28.03.2017
-Last update : 17.04.2017
+Last update : 18.04.2017
 
 To do:
-
+*Finding smallest value of edge out of possible choises and
+chcecking if it's _MST is true/false
 
 Made by  Marcin Hubicki
 ---------------------------------------------------------------------------------*/
@@ -33,6 +34,7 @@ public:
 	struct Compare
 	{
 		bool operator () (const edge & E1, const edge & E2);
+		//bool operator < (const edge & E);
 	};
 
 
@@ -79,15 +81,12 @@ public:
 	void Print();
 	void Prim_Algorithm(long vert_ind);
 	void View_Set(set<edge, edge::Compare> S1);
+	void View_MST();
 
 	long _nv;
 	long _ne;
 
 };
-
-
-
-
 
 void graph::Prim_Algorithm(long first_vertex_index)
 {
@@ -96,49 +95,76 @@ void graph::Prim_Algorithm(long first_vertex_index)
 	std::set<edge>::iterator iter;
 	edge tmpE;
 	vertex tmpV;
+	bool repeatSet,repeatMST;
 	int j=0;
 
 	long current=first_vertex_index, next_ind;
 
-	do
+	while (j < 4)// ->  <nv
 	{
-		for (int i = 0; i < _V1[current]._Te.capacity(); i++)
+		for (int i = 0; i < _V1[current]._Te.size(); i++)
 		{
-			S1.insert(_V1[current]._Te[i]);
+			if (j == 0)
+			{
+				S1.insert(_V1[current]._Te[i]);
+			}
+			else
+			{
+				for (iter = S1.begin(); iter != S1.end(); iter++)
+				{
+					tmpE = *iter;
+					if (_V1[current]._Te[i]._First == tmpE._Secound && _V1[current]._Te[i]._Secound == tmpE._First && _V1[current]._Te[i]._value == tmpE._value)
+					{
+						repeatSet = true;
+						break;
+					}
+					else
+					{
+						repeatSet = false;
+					}
+				}
+				if (repeatSet == false)
+				{
+					tmpE._First = _V1[current]._Te[i]._Secound;
+					tmpE._Secound = _V1[current]._Te[i]._First;
+					tmpE._value = _V1[current]._Te[i]._value;
+
+					for (int k = 0; k < _MST.size(); k++)
+					{
+						if (tmpE._First == _MST[k]._First && tmpE._Secound == _MST[k]._Secound)
+						{
+							repeatMST = true;
+							break;
+						}
+						else
+						{
+							repeatMST = false;
+						}
+					}
+					if (repeatMST == false)
+					{
+						S1.insert(_V1[current]._Te[i]);
+					}
+				}
+			}
 		}
-		_V1[current].MST = true;
-		View_Set(S1);
+			View_Set(S1);
 
-		iter = S1.begin();
-		tmpE = *iter;
-		_MST.push_back(tmpE);
-		S1.erase(iter);//nie usowa elementu do konca. moze zmieniac val na bardzo duza i zwiekszac tak zeby nie mialy znaczenia w trakcie alg
-		current = tmpE._Secound;
-		j++;
-	} while (j < 2);
+			iter = S1.begin();
+			tmpE = *iter;
+			_MST.push_back(tmpE);
+			_V1[current].MST = true;
 
+			S1.erase(S1.begin());
+			View_Set(S1);
 
-//==================VIEW==SET=======================================
-	//iter = S1.begin();
-	//cout << "AVAILABLE EDGES:" << endl;
-	//for (iter = S1.begin(); iter != S1.end(); iter++)
-	//{
-	//	tmpE = * iter;
-	//	cout << tmpE._First << "  " << tmpE._Secound << "  " << tmpE._value << endl;
-	//}
-//=================================================================
+			j++;
+			current = tmpE._Secound;
 
-
-//===================View==_MST====================================
-	cout << "MST: " << endl;
-	for (int i = 0; i < _MST.capacity(); i++)
-	{
-		cout << _MST[i]._First << " " << _MST[i]._Secound << " " << _MST[i]._value << endl;
+			View_MST();
+		}
 	}
-//=================================================================
 
-
-}
 
 void graph::View_Set(set<edge, edge::Compare> S1)
 {
@@ -154,6 +180,15 @@ void graph::View_Set(set<edge, edge::Compare> S1)
 	}
 }
 
+void graph::View_MST()
+{
+	cout << "MST: " << endl;
+	for (int i = 0; i < _MST.capacity(); i++)
+	{
+		cout << _MST[i]._First << " " << _MST[i]._Secound << " " << _MST[i]._value << endl;
+	}
+}
+
 
 
 
@@ -161,7 +196,6 @@ void graph::Read()
 {
 	int i = 0, j = 0;
 	vertex tmpV;
-//	edge_v tmpE;
 	edge tmpe;
 
 	std::cin >> _nv;
@@ -177,14 +211,14 @@ void graph::Read()
 	std::cin >> _ne;
 	while (j<_ne)
 	{
-		cin >> tmpV._Index;
-		cin >> tmpe._Secound >> tmpe._value;
-		tmpe._First = tmpV._Index;
+		cin >> tmpe._First >> tmpe._Secound >> tmpe._value;
+		_V1[tmpe._First]._Te.push_back(tmpe);
 
-		_V1[tmpV._Index]._Te.push_back(tmpe);
-		std::swap(tmpV._Index, tmpe._Secound);//
-		_V1[tmpV._Index]._Te.push_back(tmpe);//
+		std::swap(tmpe._First, tmpe._Secound);
+		
+		_V1[tmpe._First]._Te.push_back(tmpe);
 		j++;
+
 	}
 }
 
@@ -195,10 +229,13 @@ void graph::Print()
 	while (j < _nv)
 	{
 		cout << _V1[j]._Name<<" " << _V1[j]._Index <<endl;
+		cout << "Fir: " << "  " << "Sec: " << "  " << "Val: " << endl;
 		for (int k = 0; k< _V1[j]._Te.size(); k++)
 		{
 			tmpInd = _V1[j]._Te[k]._Secound;
-			cout<<_V1[tmpInd]._Name << " " << _V1[j]._Te[k]._value << "	";
+			cout  << _V1[j]._Te[k]._First<<"      " << _V1[tmpInd]._Name<<"  ";
+			cout  << _V1[j]._Te[k]._Secound << "   ";
+			cout  << _V1[j]._Te[k]._value << endl;
 		}
 		j++;
 		cout <<endl<< endl;
@@ -215,6 +252,7 @@ bool edge::Compare::operator()(const edge & E1, const edge & E2)
 	else
 		return true;
 }
+
 
 int main()
 {
@@ -300,3 +338,102 @@ int main()
 //}
 
 
+//for (iter = S1.begin(); iter != S1.end(); iter++)
+//{
+//	tmpE = *iter;
+//	if (_V1[current]._Te[i]._First == tmpE._Secound && _V1[current]._Te[i]._Secound == tmpE._First && _V1[current]._Te[i]._value == tmpE._value)
+//	{
+
+//	}
+//	else
+//	{			
+//		tmpE._First = _V1[current]._Te[i]._Secound;
+//		tmpE._Secound = _V1[current]._Te[i]._First;
+//		tmpE._value = _V1[current]._Te[i]._value;
+//		for (int k = 0; k < _MST.size(); k++)
+//		{
+
+//			if (tmpE._First == _MST[k]._First && tmpE._Secound == _MST[k]._Secound)
+//			{
+//				repeat = true;
+//				break;
+//			}
+//			else
+//			{
+//				repeat = false;
+//			}
+//		}
+//		if (repeat == false)
+//		{
+//			S1.insert(_V1[current]._Te[i]);
+//		}
+//		break;
+//	}
+
+//}
+
+//tmpE._First = _V1[current]._Te[i]._Secound;
+//tmpE._Secound = _V1[current]._Te[i]._First;
+//tmpE._value = _V1[current]._Te[i]._value;
+
+/*
+for (int k = 0; k < _MST.size(); k++)
+{
+
+if (tmpE._First == _MST[k]._First && tmpE._Secound == _MST[k]._Secound)
+{
+repeat = true;
+break;
+}
+else
+{
+repeat = false;
+}
+}
+if (repeat == false)
+{
+iter = S1.find(tmpE);
+if (iter != S1.end())
+{
+S1.insert(_V1[current]._Te[i]);
+}
+}*/
+
+// to be continued. . .
+
+//do
+//{
+//	for (int i = 0; i < _V1[current]._Te.capacity(); i++)
+//	{
+//		if (j == 0)
+//		{
+//			S1.insert(_V1[current]._Te[i]);
+//		}
+//		else
+//		{
+//			tmpE._First = _V1[current]._Te[i]._First;
+//			tmpE._Secound = _V1[current]._Te[i]._Secound;
+//		//	tmpE._value = _V1[current]._Te[i]._value;
+//			
+//			for (int k = 0; k < _MST.capacity(); k++)
+//			{
+//				if (tmpE._First != _MST[k]._First)
+//				{
+//					S1.insert(_V1[current]._Te[i]);
+//				}
+//			}
+//		}
+//	}
+//	View_Set(S1);
+
+//	iter = S1.begin();
+//	tmpE = *iter;
+//	_MST.push_back(tmpE);
+//	_V1[current].MST = true;
+
+//	S1.erase(S1.begin());
+//	View_Set(S1);
+//	current = tmpE._Secound;
+//	j++;
+
+//} while (j < 3);// <nv -1 ?
