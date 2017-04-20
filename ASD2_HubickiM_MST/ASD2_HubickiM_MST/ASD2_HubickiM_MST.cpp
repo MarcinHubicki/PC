@@ -6,7 +6,7 @@ Last update : 18.04.2017
 
 To do:
 *Finding smallest value of edge out of possible choises and
-chcecking if it's _MST is true/false
+chcecking if it's _MST is true/false 
 
 Made by  Marcin Hubicki
 ---------------------------------------------------------------------------------*/
@@ -96,11 +96,11 @@ void graph::Prim_Algorithm(long first_vertex_index)
 	edge tmpE;
 	vertex tmpV;
 	bool repeatSet,repeatMST;
-	int j=0;
+	int j=0,k,counter=0;
 
 	long current=first_vertex_index, next_ind;
 
-	while (j < 4)// ->  <nv
+	while (j < 10)// ->  <nv
 	{
 		for (int i = 0; i < _V1[current]._Te.size(); i++)
 		{
@@ -110,10 +110,12 @@ void graph::Prim_Algorithm(long first_vertex_index)
 			}
 			else
 			{
+				repeatSet = false;
 				for (iter = S1.begin(); iter != S1.end(); iter++)
 				{
 					tmpE = *iter;
-					if (_V1[current]._Te[i]._First == tmpE._Secound && _V1[current]._Te[i]._Secound == tmpE._First && _V1[current]._Te[i]._value == tmpE._value)
+					//if (_V1[current]._Te[i]._First == tmpE._Secound && _V1[current]._Te[i]._Secound == tmpE._First && _V1[current]._Te[i]._value == tmpE._value)
+					if (_V1[current]._Te[i]._First == tmpE._Secound && _V1[current]._Te[i]._Secound == tmpE._First)
 					{
 						repeatSet = true;
 						break;
@@ -123,13 +125,29 @@ void graph::Prim_Algorithm(long first_vertex_index)
 						repeatSet = false;
 					}
 				}
+
 				if (repeatSet == false)
 				{
 					tmpE._First = _V1[current]._Te[i]._Secound;
 					tmpE._Secound = _V1[current]._Te[i]._First;
 					tmpE._value = _V1[current]._Te[i]._value;
 
-					for (int k = 0; k < _MST.size(); k++)
+					//k = 0;
+					//while (k < _MST.size())
+					//{
+					//		if (tmpE._First == _MST[k]._First && tmpE._Secound == _MST[k]._Secound)
+					//		{
+					//			repeatMST = true;
+					//			break;
+					//		}
+					//		else
+					//		{
+					//			repeatMST = false;
+					//		}
+					//	k++;
+					//}
+					repeatMST = false;
+					for ( k = 0; k < _MST.size(); k++)
 					{
 						if (tmpE._First == _MST[k]._First && tmpE._Secound == _MST[k]._Secound)
 						{
@@ -141,6 +159,7 @@ void graph::Prim_Algorithm(long first_vertex_index)
 							repeatMST = false;
 						}
 					}
+
 					if (repeatMST == false)
 					{
 						S1.insert(_V1[current]._Te[i]);
@@ -152,6 +171,13 @@ void graph::Prim_Algorithm(long first_vertex_index)
 
 			iter = S1.begin();
 			tmpE = *iter;
+
+			while (_V1[tmpE._Secound].MST != false)
+			{
+				iter++;
+				tmpE = *iter;
+			}
+
 			_MST.push_back(tmpE);
 			_V1[current].MST = true;
 
@@ -160,8 +186,10 @@ void graph::Prim_Algorithm(long first_vertex_index)
 
 			j++;
 			current = tmpE._Secound;
+			counter++;
 
 			View_MST();
+			cout << "counter" << counter << endl;
 		}
 	}
 
@@ -183,7 +211,7 @@ void graph::View_Set(set<edge, edge::Compare> S1)
 void graph::View_MST()
 {
 	cout << "MST: " << endl;
-	for (int i = 0; i < _MST.capacity(); i++)
+	for (int i = 0; i < _MST.size(); i++)
 	{
 		cout << _MST[i]._First << " " << _MST[i]._Secound << " " << _MST[i]._value << endl;
 	}
@@ -197,6 +225,8 @@ void graph::Read()
 	int i = 0, j = 0;
 	vertex tmpV;
 	edge tmpe;
+
+	tmpV.MST = false;
 
 	std::cin >> _nv;
 
