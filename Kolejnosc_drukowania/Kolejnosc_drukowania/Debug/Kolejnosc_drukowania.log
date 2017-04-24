@@ -1,0 +1,5 @@
+﻿  ASD2_HubickiM_Kolejnosc_drukowania.cpp
+c:\users\pecet\documents\github\pc\kolejnosc_drukowania\kolejnosc_drukowania\asd2_hubickim_kolejnosc_drukowania.cpp(81): warning C4101: 'tmpE': unreferenced local variable
+c:\users\pecet\documents\github\pc\kolejnosc_drukowania\kolejnosc_drukowania\asd2_hubickim_kolejnosc_drukowania.cpp(78): warning C4101: 'Mine': unreferenced local variable
+  Kolejnosc_drukowania.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\Kolejnosc_drukowania\Debug\Kolejnosc_drukowania.exe
+  Kolejnosc_drukowania.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\Kolejnosc_drukowania\Debug\Kolejnosc_drukowania.pdb (Full PDB)
