@@ -6,8 +6,8 @@ public:
 	PacMan();
 	~PacMan();
 
-	short Zjedz(short x, short y);
-	void Umrzyj();
+//	short Zjedz(short x, short y);
+//	void Umrzyj();
 	short _Ilosc_zyc;
 
 };

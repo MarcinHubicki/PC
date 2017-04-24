@@ -6,6 +6,6 @@ public:
 	Przeciwnik();
 	~Przeciwnik();
 
-	void Zbliz_sie(short _x, short _y);
+	//void Zbliz_sie(short _x, short _y);
 };
 
