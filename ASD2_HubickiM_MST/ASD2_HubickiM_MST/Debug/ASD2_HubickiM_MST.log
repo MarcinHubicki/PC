@@ -1,7 +1,7 @@
 ﻿  ASD2_HubickiM_MST.cpp
-c:\users\pecet\documents\github\pc\asd2_hubickim_mst\asd2_hubickim_mst\asd2_hubickim_mst.cpp(89): warning C4018: '<': signed/unsigned mismatch
-c:\users\pecet\documents\github\pc\asd2_hubickim_mst\asd2_hubickim_mst\asd2_hubickim_mst.cpp(120): warning C4018: '<': signed/unsigned mismatch
-c:\users\pecet\documents\github\pc\asd2_hubickim_mst\asd2_hubickim_mst\asd2_hubickim_mst.cpp(185): warning C4018: '<': signed/unsigned mismatch
-c:\users\pecet\documents\github\pc\asd2_hubickim_mst\asd2_hubickim_mst\asd2_hubickim_mst.cpp(234): warning C4018: '<': signed/unsigned mismatch
+c:\users\pecet\documents\github\pc\asd2_hubickim_mst\asd2_hubickim_mst\asd2_hubickim_mst.cpp(87): warning C4018: '<': signed/unsigned mismatch
+c:\users\pecet\documents\github\pc\asd2_hubickim_mst\asd2_hubickim_mst\asd2_hubickim_mst.cpp(118): warning C4018: '<': signed/unsigned mismatch
+c:\users\pecet\documents\github\pc\asd2_hubickim_mst\asd2_hubickim_mst\asd2_hubickim_mst.cpp(183): warning C4018: '<': signed/unsigned mismatch
+c:\users\pecet\documents\github\pc\asd2_hubickim_mst\asd2_hubickim_mst\asd2_hubickim_mst.cpp(232): warning C4018: '<': signed/unsigned mismatch
   ASD2_HubickiM_MST.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\ASD2_HubickiM_MST\Debug\ASD2_HubickiM_MST.exe
   ASD2_HubickiM_MST.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\ASD2_HubickiM_MST\Debug\ASD2_HubickiM_MST.pdb (Full PDB)

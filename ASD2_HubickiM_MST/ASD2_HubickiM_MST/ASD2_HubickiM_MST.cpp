@@ -72,7 +72,7 @@ public:
 
 void graph::Prim_Algorithm(long first_vertex_index)
 {
-	cout << "PRIM STARTS:" << endl;
+	//cout << "PRIM STARTS:" << endl;
 	set<edge, edge::Compare> S1;
 	std::set<edge>::iterator iter;
 	edge tmpE;
@@ -136,7 +136,7 @@ void graph::Prim_Algorithm(long first_vertex_index)
 				}
 			}
 		}
-		View_Set(S1);
+	//	View_Set(S1);
 		iter = S1.begin();
 		tmpE = *iter;
 
@@ -157,7 +157,7 @@ void graph::Prim_Algorithm(long first_vertex_index)
 		current = tmpE._Secound;
 		//counter++;
 
-		View_MST();
+		//View_MST();
 		//cout << "counter" << counter << endl;
 	}
 	}
@@ -258,8 +258,9 @@ int main()
 
 	graph G1;
 	G1.Read();
-	G1.Print();
+	//G1.Print();
 	G1.Prim_Algorithm(0);
+	G1.View_MST();
 
 	return 0;
 	system("PAUSE");
