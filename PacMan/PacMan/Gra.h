@@ -11,7 +11,7 @@ public:
 
 //	short Oddaj_Sygnal();
 //	bool Graj();
-	virtual void View();
+	//virtual void View();
 
 };
 

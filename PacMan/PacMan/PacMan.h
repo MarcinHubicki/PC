@@ -6,9 +6,17 @@ public:
 	PacMan();
 	~PacMan();
 
-//	short Zjedz(short x, short y);
+//	short Zjedz(const short & key );
 //	void Umrzyj();
-	short _Ilosc_zyc;
+	short _Ilosc_zyc=4;
+	
+	enum kierunek
+	{
+		UP,
+		DOWN,
+		LEFT,
+		RIGHT
+	};
 
 };
 
