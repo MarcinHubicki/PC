@@ -10,7 +10,7 @@ public:
 	virtual ~ Gra();
 
 //	short Oddaj_Sygnal();
-//	bool Graj();
+	bool Graj();
 	//virtual void View();
 
 };

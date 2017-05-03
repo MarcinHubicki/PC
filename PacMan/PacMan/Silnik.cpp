@@ -11,6 +11,27 @@ Silnik::~Silnik()
 {
 }
 
+//void Silnik::Inicjuj_Labirynt(short stage_name)
+//{
+//	char* tmp = (char *)stage_name;
+//	std::ifstream In(tmp);
+//
+//	for (int i = 0; i < y; i++)
+//	{
+//		for (int j = 0; j < x; j++)
+//		{
+//			In >> Plansza[i][j];
+//			if (Plansza[i][j] == 4)
+//			{
+//				_PACMAN._x = j;
+//				_PACMAN._y = i;
+//			}
+//		}
+//	}
+//
+//	In.close();
+//	Licz_Pozostale_Kropki();
+//}
 void Silnik::Inicjuj_Labirynt(std::string stage_name)
 {
 	std::ifstream In(stage_name);
@@ -32,44 +53,75 @@ void Silnik::Inicjuj_Labirynt(std::string stage_name)
 		Licz_Pozostale_Kropki();
 }
 
-//void Silnik::Sprawdz_Sciany(const int & kierunek)
-//{
-//
-//
-//}
+
 
 void Silnik::Porusz_Postacia(PacMan & _PACMAN)//sprawdz
 {
+	bool wall = false;
 	switch (_PACMAN._kierunek_Poruszania)
 	{
 	case PacMan::kierunek::DOWN :
-		
-		Plansza[_PACMAN._y][_PACMAN._x] = 0;
-		_PACMAN._y--;
-		if (Plansza[_PACMAN._y][_PACMAN._x] == 2) { Pozostale_kropki--; }
-		Plansza[_PACMAN._y][_PACMAN._x] = 7;
-		break;
+		wall = Sprawdz_Dol();
+		if (wall == true)
+		{
+			break;
+		}
+		else
+		{
+			Plansza[_PACMAN._y][_PACMAN._x] = 0;
+			_PACMAN._y++;
+			if (Plansza[_PACMAN._y][_PACMAN._x] == 2) { Pozostale_kropki--; }
+			Plansza[_PACMAN._y][_PACMAN._x] = 6;
+			break;
+		}
 
 	case PacMan::kierunek::UP:
-		Plansza[_PACMAN._y][_PACMAN._x] = 0;
-		_PACMAN._y++;
-		if (Plansza[_PACMAN._y][_PACMAN._x] == 2) { Pozostale_kropki--; }
-		Plansza[_PACMAN._y][_PACMAN._x] = 6;
-		break;
+		wall=Sprawdz_Gore();
+		if (wall == true)
+		{
+			break;
+		}
+		else
+		{
+			Plansza[_PACMAN._y][_PACMAN._x] = 0;
+			_PACMAN._y--;
+			if (Plansza[_PACMAN._y][_PACMAN._x] == 2) { Pozostale_kropki--; }
+			Plansza[_PACMAN._y][_PACMAN._x] = 7;
+			break;
+		}
+
 
 	case PacMan::kierunek::LEFT:
-		Plansza[_PACMAN._y][_PACMAN._x] = 0;
-		_PACMAN._x--;
-		if (Plansza[_PACMAN._y][_PACMAN._x] == 2) { Pozostale_kropki--; }
-		Plansza[_PACMAN._y][_PACMAN._x] = 4;
-		break;
+		wall = Sprawdz_Lewo();
+		if (wall == true)
+		{
+			break;
+		}
+		else
+		{
+			Plansza[_PACMAN._y][_PACMAN._x] = 0;
+			_PACMAN._x--;
+			if (Plansza[_PACMAN._y][_PACMAN._x] == 2) { Pozostale_kropki--; }
+			Plansza[_PACMAN._y][_PACMAN._x] = 4;
+			break;
+		}
+
 			
 	case PacMan::kierunek::RIGHT:
-		Plansza[_PACMAN._y][_PACMAN._x] = 0;
-		_PACMAN._x++;
-		if (Plansza[_PACMAN._y][_PACMAN._x] == 2) { Pozostale_kropki--; }
-		Plansza[_PACMAN._y][_PACMAN._x] = 5;
-		break;
+		wall = Sprawdz_Prawo();
+		if (wall == true)
+		{
+			break;
+		}
+		else
+		{
+			Plansza[_PACMAN._y][_PACMAN._x] = 0;
+			_PACMAN._x++;
+			if (Plansza[_PACMAN._y][_PACMAN._x] == 2) { Pozostale_kropki--; }
+			Plansza[_PACMAN._y][_PACMAN._x] = 5;
+			break;
+		}
+		
 
 	default:
 		std::cout << "DEFAULT!!" << std::endl;
@@ -142,6 +194,14 @@ void Silnik::Odbierz_sygnal()
 		}
 		if (Pozostale_kropki == 0) { end = true; }
 	}
+	if (end == true)// do zmiany 
+	{
+		system("cls");
+		std::cout << "CONGRATULATIONS! STAGE " << Stage_nr << " COMPLETE" << std::endl;
+		Stage_nr++;
+
+	}
+	
 }
 
 void Silnik::Licz_Pozostale_Kropki()
@@ -157,6 +217,57 @@ void Silnik::Licz_Pozostale_Kropki()
 			}
 			
 		}
+	}
+}
+
+bool Silnik::Sprawdz_Gore()
+{
+	if (Plansza[_PACMAN._y-1][_PACMAN._x]==1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
+}
+
+bool Silnik::Sprawdz_Dol()
+{
+	if (Plansza[_PACMAN._y + 1][_PACMAN._x] == 1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+bool Silnik::Sprawdz_Lewo()
+{
+	if (Plansza[_PACMAN._y ][_PACMAN._x-1] == 1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+bool Silnik::Sprawdz_Prawo()
+{
+	if (Plansza[_PACMAN._y][_PACMAN._x + 1] == 1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
@@ -198,4 +309,6 @@ void Silnik::View()
 		}
 		std::cout << std::endl;
 	}
+	std::cout << "OBJECTS LEFT: " << Pozostale_kropki <<std:: endl;
+	std::cout << "LIFES LEFT: " << _PACMAN._Ilosc_zyc << std::endl;
 }

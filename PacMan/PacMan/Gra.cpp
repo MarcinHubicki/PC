@@ -9,6 +9,12 @@ Gra::~Gra()
 {
 }
 
+bool Gra::Graj()
+{
+
+	return false;
+}
+
 //void Gra::View()
 //{
 //	for (int i = 0; i < y; i++)

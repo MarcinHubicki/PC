@@ -6,8 +6,8 @@
 #include <stdio.h>
 #include <string>
 
-#define ARROW_UP 80
-#define ARROW_DOWN 72
+#define ARROW_UP 72
+#define ARROW_DOWN 80
 #define ARROW_RIGHT 77
 #define ARROW_LEFT 75
 #define PREF 224
@@ -19,8 +19,8 @@
 2-BEAD
 4-LOOKING LEFT
 5-LOOKING RIGHT
-6-LOOKING UP
-7-LOOKING DOWN
+6-LOOKING DOWN
+7-LOOKING UP
 ====================================================
 */
 
@@ -33,15 +33,17 @@ public:
 	~Silnik();
 
 	void Odbierz_sygnal();
+//	void Inicjuj_Labirynt(short stage_name);
 	virtual void View();
+	short Stage_nr = 0;
 	void Inicjuj_Labirynt(std::string stage_name);// do protected // inicjuj ( string nazwa pliku) przyda sie przy zmienianiu zabiryntow
 protected:
+
 	static const short x=25, y=15;//???
+
 	short Plansza[y][x];
 	PacMan _PACMAN;
 
-
-//	void Sprawdz_Sciany(const int & kierunek);
 
 	void Porusz_Postacia(PacMan & _PACMAN);
 	void Zmien_kierunek( short kierunek);
@@ -50,6 +52,12 @@ protected:
 	void Licz_Pozostale_Kropki();
 
 	short Pozostale_kropki=0;//ma byc tu
+
+	bool Sprawdz_Gore();
+	bool Sprawdz_Dol();
+	bool Sprawdz_Lewo();
+	bool Sprawdz_Prawo();
+
 
 };
 
