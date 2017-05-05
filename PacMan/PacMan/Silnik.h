@@ -58,6 +58,6 @@ protected:
 	bool Sprawdz_Lewo();
 	bool Sprawdz_Prawo();
 
-
+	bool Sprawdz_klaw();
 };
 

@@ -10,7 +10,7 @@ int main()
 	long key,asd=0;
 
 	Gra G;
-	G.Inicjuj_Labirynt("1.txt");
+	G.Inicjuj_Labirynt("0.txt");
 	G.View();
 	G.Odbierz_sygnal();
 

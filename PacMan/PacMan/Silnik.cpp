@@ -140,59 +140,68 @@ void Silnik::Zmien_kierunek(short kierunek)
 
 void Silnik::Odbierz_sygnal()
 {
-	bool end = false; 
+	bool keyboard = false, end = false;
 	short key;
 
 	while (end != true)
 	{
-		key = getch();
-
-		switch (key)
+		keyboard = Sprawdz_klaw();
+		if (keyboard == true)
 		{
-		case PREF:
 			key = getch();
 			switch (key)
 			{
-			case ARROW_DOWN:
-				Zmien_kierunek(PacMan::kierunek::DOWN);
-				Porusz_Postacia(_PACMAN);
-				system("cls");
-				View();
+			case PREF:
+				key = getch();
+				switch (key)
+				{
+				case ARROW_DOWN:
+					Zmien_kierunek(PacMan::kierunek::DOWN);
+					Porusz_Postacia(_PACMAN);
+					system("cls");
+					View();
+					break;
+
+				case ARROW_UP:
+					Zmien_kierunek(PacMan::kierunek::UP);
+					Porusz_Postacia(_PACMAN);
+					system("cls");
+					View();
+					break;
+
+				case ARROW_LEFT:
+					Zmien_kierunek(PacMan::kierunek::LEFT);
+					Porusz_Postacia(_PACMAN);
+					system("cls");
+					View();
+					break;
+
+				case ARROW_RIGHT:
+					Zmien_kierunek(PacMan::kierunek::RIGHT);
+					Porusz_Postacia(_PACMAN);
+					system("cls");
+					View();
+					break;
+				}
+				key = 0;
 				break;
 
-			case ARROW_UP:
-				Zmien_kierunek(PacMan::kierunek::UP);
-				Porusz_Postacia(_PACMAN);
-				system("cls");
-				View();
+			case 27: //esc
+				std::cout << "ESC" << std::endl;
+				end = true;
 				break;
 
-			case ARROW_LEFT:
-				Zmien_kierunek(PacMan::kierunek::LEFT);
-				Porusz_Postacia(_PACMAN);
-				system("cls");
-				View();
-				break;
-
-			case ARROW_RIGHT:
-				Zmien_kierunek(PacMan::kierunek::RIGHT);
-				Porusz_Postacia(_PACMAN);
-				system("cls");
-				View();
-				break;
+			default:
+				std::cout << "ERROR: " << key << std::endl;
 			}
-			key = 0;
-			break;
-
-		case 27: //esc
-			std::cout << "ESC" << std::endl;
-			end = true;
-			break;
-
-		default :
-			std::cout << "ERROR: " << key<<std::endl;
+			if (Pozostale_kropki == 0) { end = true; }
 		}
-		if (Pozostale_kropki == 0) { end = true; }
+		else
+		{
+			Porusz_Postacia(_PACMAN);
+			system("cls");
+			View();
+		}
 	}
 	if (end == true)// do zmiany 
 	{
@@ -201,8 +210,73 @@ void Silnik::Odbierz_sygnal()
 		Stage_nr++;
 
 	}
-	
+
 }
+//void Silnik::Odbierz_sygnal()
+//{
+//	bool end = false; 
+//	short key;
+//
+//	while (end != true)
+//	{
+//		key = getch();
+//
+//		switch (key)
+//		{
+//		case PREF:
+//			key = getch();
+//			switch (key)
+//			{
+//			case ARROW_DOWN:
+//				Zmien_kierunek(PacMan::kierunek::DOWN);
+//				Porusz_Postacia(_PACMAN);
+//				system("cls");
+//				View();
+//				break;
+//
+//			case ARROW_UP:
+//				Zmien_kierunek(PacMan::kierunek::UP);
+//				Porusz_Postacia(_PACMAN);
+//				system("cls");
+//				View();
+//				break;
+//
+//			case ARROW_LEFT:
+//				Zmien_kierunek(PacMan::kierunek::LEFT);
+//				Porusz_Postacia(_PACMAN);
+//				system("cls");
+//				View();
+//				break;
+//
+//			case ARROW_RIGHT:
+//				Zmien_kierunek(PacMan::kierunek::RIGHT);
+//				Porusz_Postacia(_PACMAN);
+//				system("cls");
+//				View();
+//				break;
+//			}
+//			key = 0;
+//			break;
+//
+//		case 27: //esc
+//			std::cout << "ESC" << std::endl;
+//			end = true;
+//			break;
+//
+//		default :
+//			std::cout << "ERROR: " << key<<std::endl;
+//		}
+//		if (Pozostale_kropki == 0) { end = true; }
+//	}
+//	if (end == true)// do zmiany 
+//	{
+//		system("cls");
+//		std::cout << "CONGRATULATIONS! STAGE " << Stage_nr << " COMPLETE" << std::endl;
+//		Stage_nr++;
+//
+//	}
+//	
+//}
 
 void Silnik::Licz_Pozostale_Kropki()
 {
@@ -271,6 +345,18 @@ bool Silnik::Sprawdz_Prawo()
 	}
 }
 
+bool Silnik::Sprawdz_klaw()
+{
+	bool out = kbhit();
+	if (out == true)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
 void Silnik::View()
 {
