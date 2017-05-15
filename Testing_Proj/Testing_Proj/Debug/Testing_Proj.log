@@ -1,4 +1,4 @@
-﻿  ASD2_WozniakS_MST (1).cpp
-c:\users\pecet\downloads\asd2_wozniaks_mst (1).cpp(126): warning C4018: '<': signed/unsigned mismatch
+﻿  ASD2_Boberek_HeapSort.cpp
+c:\users\pecet\downloads\do-wyslania\heap sort\asd2_boberek_heapsort.cpp(55): warning C4101: 'rozmiar': unreferenced local variable
   Testing_Proj.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\Testing_Proj\Debug\Testing_Proj.exe
   Testing_Proj.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\Testing_Proj\Debug\Testing_Proj.pdb (Full PDB)

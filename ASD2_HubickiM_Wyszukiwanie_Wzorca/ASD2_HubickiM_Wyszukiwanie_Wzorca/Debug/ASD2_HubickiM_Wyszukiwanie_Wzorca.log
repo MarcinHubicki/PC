@@ -1,0 +1,4 @@
+﻿  ASD2+HubickiM_Wyszukiwanie_Wzorca.cpp
+c:\users\pecet\documents\github\pc\asd2_hubickim_wyszukiwanie_wzorca\asd2_hubickim_wyszukiwanie_wzorca\asd2+hubickim_wyszukiwanie_wzorca.cpp(48): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
+  ASD2_HubickiM_Wyszukiwanie_Wzorca.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\ASD2_HubickiM_Wyszukiwanie_Wzorca\Debug\ASD2_HubickiM_Wyszukiwanie_Wzorca.exe
+  ASD2_HubickiM_Wyszukiwanie_Wzorca.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\ASD2_HubickiM_Wyszukiwanie_Wzorca\Debug\ASD2_HubickiM_Wyszukiwanie_Wzorca.pdb (Full PDB)

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Downloads\ASD2_WozniakS_MST (1).cpp">
+    <ClCompile Include="..\..\..\..\..\Downloads\do-wyslania\Heap Sort\ASD2_Boberek_HeapSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
