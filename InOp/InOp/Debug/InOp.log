@@ -1,5 +1,7 @@
-﻿  InOp.cpp
+﻿  Ekran_Glowny.cpp
+  InOp.cpp
 InOp.cpp(9): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
-  InOp.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+  Generating Code...
+  Ekran_Glowny.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
   InOp.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\InOp\Debug\InOp.exe
   InOp.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\InOp\Debug\InOp.pdb (Partial PDB)

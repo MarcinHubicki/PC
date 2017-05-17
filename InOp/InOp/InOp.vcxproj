@@ -74,6 +74,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>C:\Program Files\PostgreSQL\9.6\include;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files\PostgreSQL\9.6\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -94,6 +96,7 @@
       <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>C:\Program Files\PostgreSQL\9.6\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,14 +135,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ekran_Glowny.cpp" />
     <ClCompile Include="InOp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ekran_Glowny.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="InOp.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Ekran_Glowny.resx">
+      <DependentUpon>Ekran_Glowny.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InOp.resx">
       <DependentUpon>InOp.h</DependentUpon>
     </EmbeddedResource>

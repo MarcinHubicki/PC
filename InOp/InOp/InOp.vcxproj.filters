@@ -18,9 +18,15 @@
     <ClCompile Include="InOp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ekran_Glowny.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InOp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ekran_Glowny.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
