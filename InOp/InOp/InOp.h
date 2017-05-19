@@ -1,7 +1,8 @@
 #pragma once
 #include"Ekran_Glowny.h"
-
+#include "Ekran_Glowny_Wykl.h"
 #include <libpq\libpq-fs.h>
+#include <libpq-fe.h>
 
 namespace InOp {
 
@@ -39,20 +40,24 @@ namespace InOp {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^  ZALOGUJ_BTN;
+	private: System::Windows::Forms::Button^  ZALOGUJ_STUD_BTN;
+	protected:
+
 	protected:
 
 	protected:
 
 	private: System::Windows::Forms::TextBox^  NR_ALB_TXTB;
 	private: System::Windows::Forms::TextBox^  IMIE_TXTB;
+	private: System::Windows::Forms::TextBox^  IMIE_STUD_TXTB;
 	protected:
 
 
-	private: System::Windows::Forms::TextBox^  HASLO_TXTB;
+
 
 	private: System::Windows::Forms::Label^  NR_ALB_LBL;
-	private: System::Windows::Forms::Label^  HASLO_LBL;
+	private: System::Windows::Forms::Label^  IMIE_STUD_LBL;
+
 	private: System::Windows::Forms::Label^  STUD_LBL;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  IMIE_LBL;
@@ -60,6 +65,9 @@ namespace InOp {
 	private: System::Windows::Forms::Label^  NAZW_TXTB;
 	private: System::Windows::Forms::TextBox^  HASLO_WYKL_TXTB;
 	private: System::Windows::Forms::Label^  HASLO_WYKL_LBL;
+	private: System::Windows::Forms::TextBox^  NAZW_STUD_TXTB;
+	private: System::Windows::Forms::Label^  NAZW_STUD_LBL;
+	private: System::Windows::Forms::Button^  ZALOGUJ_WYKL_BTN;
 
 	protected:
 
@@ -82,12 +90,12 @@ namespace InOp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->ZALOGUJ_BTN = (gcnew System::Windows::Forms::Button());
+			this->ZALOGUJ_STUD_BTN = (gcnew System::Windows::Forms::Button());
 			this->NR_ALB_TXTB = (gcnew System::Windows::Forms::TextBox());
 			this->IMIE_TXTB = (gcnew System::Windows::Forms::TextBox());
-			this->HASLO_TXTB = (gcnew System::Windows::Forms::TextBox());
+			this->IMIE_STUD_TXTB = (gcnew System::Windows::Forms::TextBox());
 			this->NR_ALB_LBL = (gcnew System::Windows::Forms::Label());
-			this->HASLO_LBL = (gcnew System::Windows::Forms::Label());
+			this->IMIE_STUD_LBL = (gcnew System::Windows::Forms::Label());
 			this->STUD_LBL = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->IMIE_LBL = (gcnew System::Windows::Forms::Label());
@@ -95,56 +103,59 @@ namespace InOp {
 			this->NAZW_TXTB = (gcnew System::Windows::Forms::Label());
 			this->HASLO_WYKL_TXTB = (gcnew System::Windows::Forms::TextBox());
 			this->HASLO_WYKL_LBL = (gcnew System::Windows::Forms::Label());
+			this->NAZW_STUD_TXTB = (gcnew System::Windows::Forms::TextBox());
+			this->NAZW_STUD_LBL = (gcnew System::Windows::Forms::Label());
+			this->ZALOGUJ_WYKL_BTN = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// ZALOGUJ_BTN
+			// ZALOGUJ_STUD_BTN
 			// 
-			this->ZALOGUJ_BTN->Location = System::Drawing::Point(198, 287);
-			this->ZALOGUJ_BTN->Name = L"ZALOGUJ_BTN";
-			this->ZALOGUJ_BTN->Size = System::Drawing::Size(105, 41);
-			this->ZALOGUJ_BTN->TabIndex = 0;
-			this->ZALOGUJ_BTN->Text = L"Zaloguj";
-			this->ZALOGUJ_BTN->UseVisualStyleBackColor = true;
-			this->ZALOGUJ_BTN->Click += gcnew System::EventHandler(this, &InOp::ZALOGUJ_BTN_Click);
+			this->ZALOGUJ_STUD_BTN->Location = System::Drawing::Point(100, 280);
+			this->ZALOGUJ_STUD_BTN->Name = L"ZALOGUJ_STUD_BTN";
+			this->ZALOGUJ_STUD_BTN->Size = System::Drawing::Size(70, 30);
+			this->ZALOGUJ_STUD_BTN->TabIndex = 0;
+			this->ZALOGUJ_STUD_BTN->Text = L"Zaloguj";
+			this->ZALOGUJ_STUD_BTN->UseVisualStyleBackColor = true;
+			this->ZALOGUJ_STUD_BTN->Click += gcnew System::EventHandler(this, &InOp::ZALOGUJ_BTN_Click);
 			// 
 			// NR_ALB_TXTB
 			// 
-			this->NR_ALB_TXTB->Location = System::Drawing::Point(73, 191);
+			this->NR_ALB_TXTB->Location = System::Drawing::Point(73, 239);
 			this->NR_ALB_TXTB->Name = L"NR_ALB_TXTB";
 			this->NR_ALB_TXTB->Size = System::Drawing::Size(124, 20);
 			this->NR_ALB_TXTB->TabIndex = 1;
 			// 
 			// IMIE_TXTB
 			// 
-			this->IMIE_TXTB->Location = System::Drawing::Point(299, 143);
+			this->IMIE_TXTB->Location = System::Drawing::Point(297, 161);
 			this->IMIE_TXTB->Name = L"IMIE_TXTB";
 			this->IMIE_TXTB->Size = System::Drawing::Size(141, 20);
 			this->IMIE_TXTB->TabIndex = 2;
 			// 
-			// HASLO_TXTB
+			// IMIE_STUD_TXTB
 			// 
-			this->HASLO_TXTB->Location = System::Drawing::Point(74, 240);
-			this->HASLO_TXTB->Name = L"HASLO_TXTB";
-			this->HASLO_TXTB->Size = System::Drawing::Size(123, 20);
-			this->HASLO_TXTB->TabIndex = 3;
+			this->IMIE_STUD_TXTB->Location = System::Drawing::Point(74, 161);
+			this->IMIE_STUD_TXTB->Name = L"IMIE_STUD_TXTB";
+			this->IMIE_STUD_TXTB->Size = System::Drawing::Size(123, 20);
+			this->IMIE_STUD_TXTB->TabIndex = 3;
 			// 
 			// NR_ALB_LBL
 			// 
 			this->NR_ALB_LBL->AutoSize = true;
-			this->NR_ALB_LBL->Location = System::Drawing::Point(70, 175);
+			this->NR_ALB_LBL->Location = System::Drawing::Point(70, 223);
 			this->NR_ALB_LBL->Name = L"NR_ALB_LBL";
 			this->NR_ALB_LBL->Size = System::Drawing::Size(75, 13);
 			this->NR_ALB_LBL->TabIndex = 4;
 			this->NR_ALB_LBL->Text = L"Numer albumu";
 			// 
-			// HASLO_LBL
+			// IMIE_STUD_LBL
 			// 
-			this->HASLO_LBL->AutoSize = true;
-			this->HASLO_LBL->Location = System::Drawing::Point(74, 224);
-			this->HASLO_LBL->Name = L"HASLO_LBL";
-			this->HASLO_LBL->Size = System::Drawing::Size(34, 13);
-			this->HASLO_LBL->TabIndex = 5;
-			this->HASLO_LBL->Text = L"Haslo";
+			this->IMIE_STUD_LBL->AutoSize = true;
+			this->IMIE_STUD_LBL->Location = System::Drawing::Point(71, 143);
+			this->IMIE_STUD_LBL->Name = L"IMIE_STUD_LBL";
+			this->IMIE_STUD_LBL->Size = System::Drawing::Size(26, 13);
+			this->IMIE_STUD_LBL->TabIndex = 5;
+			this->IMIE_STUD_LBL->Text = L"Imiê";
 			// 
 			// STUD_LBL
 			// 
@@ -171,7 +182,7 @@ namespace InOp {
 			// IMIE_LBL
 			// 
 			this->IMIE_LBL->AutoSize = true;
-			this->IMIE_LBL->Location = System::Drawing::Point(296, 127);
+			this->IMIE_LBL->Location = System::Drawing::Point(296, 143);
 			this->IMIE_LBL->Name = L"IMIE_LBL";
 			this->IMIE_LBL->Size = System::Drawing::Size(26, 13);
 			this->IMIE_LBL->TabIndex = 8;
@@ -179,7 +190,7 @@ namespace InOp {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(299, 191);
+			this->textBox1->Location = System::Drawing::Point(297, 200);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(140, 20);
 			this->textBox1->TabIndex = 9;
@@ -187,7 +198,7 @@ namespace InOp {
 			// NAZW_TXTB
 			// 
 			this->NAZW_TXTB->AutoSize = true;
-			this->NAZW_TXTB->Location = System::Drawing::Point(296, 175);
+			this->NAZW_TXTB->Location = System::Drawing::Point(296, 184);
 			this->NAZW_TXTB->Name = L"NAZW_TXTB";
 			this->NAZW_TXTB->Size = System::Drawing::Size(53, 13);
 			this->NAZW_TXTB->TabIndex = 10;
@@ -195,7 +206,7 @@ namespace InOp {
 			// 
 			// HASLO_WYKL_TXTB
 			// 
-			this->HASLO_WYKL_TXTB->Location = System::Drawing::Point(298, 239);
+			this->HASLO_WYKL_TXTB->Location = System::Drawing::Point(299, 239);
 			this->HASLO_WYKL_TXTB->Name = L"HASLO_WYKL_TXTB";
 			this->HASLO_WYKL_TXTB->Size = System::Drawing::Size(140, 20);
 			this->HASLO_WYKL_TXTB->TabIndex = 11;
@@ -209,12 +220,41 @@ namespace InOp {
 			this->HASLO_WYKL_LBL->TabIndex = 12;
 			this->HASLO_WYKL_LBL->Text = L"Haslo";
 			// 
+			// NAZW_STUD_TXTB
+			// 
+			this->NAZW_STUD_TXTB->Location = System::Drawing::Point(73, 200);
+			this->NAZW_STUD_TXTB->Name = L"NAZW_STUD_TXTB";
+			this->NAZW_STUD_TXTB->Size = System::Drawing::Size(121, 20);
+			this->NAZW_STUD_TXTB->TabIndex = 13;
+			// 
+			// NAZW_STUD_LBL
+			// 
+			this->NAZW_STUD_LBL->AutoSize = true;
+			this->NAZW_STUD_LBL->Location = System::Drawing::Point(70, 184);
+			this->NAZW_STUD_LBL->Name = L"NAZW_STUD_LBL";
+			this->NAZW_STUD_LBL->Size = System::Drawing::Size(53, 13);
+			this->NAZW_STUD_LBL->TabIndex = 14;
+			this->NAZW_STUD_LBL->Text = L"Nazwisko";
+			// 
+			// ZALOGUJ_WYKL_BTN
+			// 
+			this->ZALOGUJ_WYKL_BTN->Location = System::Drawing::Point(332, 280);
+			this->ZALOGUJ_WYKL_BTN->Name = L"ZALOGUJ_WYKL_BTN";
+			this->ZALOGUJ_WYKL_BTN->Size = System::Drawing::Size(70, 30);
+			this->ZALOGUJ_WYKL_BTN->TabIndex = 15;
+			this->ZALOGUJ_WYKL_BTN->Text = L"Zaloguj";
+			this->ZALOGUJ_WYKL_BTN->UseVisualStyleBackColor = true;
+			this->ZALOGUJ_WYKL_BTN->Click += gcnew System::EventHandler(this, &InOp::ZALOGUJ_WYKL_BTN_Click);
+			// 
 			// InOp
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
-			this->ClientSize = System::Drawing::Size(508, 364);
+			this->ClientSize = System::Drawing::Size(504, 361);
+			this->Controls->Add(this->ZALOGUJ_WYKL_BTN);
+			this->Controls->Add(this->NAZW_STUD_LBL);
+			this->Controls->Add(this->NAZW_STUD_TXTB);
 			this->Controls->Add(this->HASLO_WYKL_LBL);
 			this->Controls->Add(this->HASLO_WYKL_TXTB);
 			this->Controls->Add(this->NAZW_TXTB);
@@ -222,14 +262,14 @@ namespace InOp {
 			this->Controls->Add(this->IMIE_LBL);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->STUD_LBL);
-			this->Controls->Add(this->HASLO_LBL);
+			this->Controls->Add(this->IMIE_STUD_LBL);
 			this->Controls->Add(this->NR_ALB_LBL);
-			this->Controls->Add(this->HASLO_TXTB);
+			this->Controls->Add(this->IMIE_STUD_TXTB);
 			this->Controls->Add(this->IMIE_TXTB);
 			this->Controls->Add(this->NR_ALB_TXTB);
-			this->Controls->Add(this->ZALOGUJ_BTN);
+			this->Controls->Add(this->ZALOGUJ_STUD_BTN);
 			this->Name = L"InOp";
-			this->Text = L"InOp";
+			this->Text = L"Login";
 			this->Load += gcnew System::EventHandler(this, &InOp::InOp_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -243,9 +283,20 @@ private: System::Void ZALOGUJ_BTN_Click(System::Object^  sender, System::EventAr
 	this->Hide();
 	Ekran_Glowny^ EKR_GL = gcnew Ekran_Glowny();
 	EKR_GL->ShowDialog();
+	
+	PGconn * dbconn;
+	//dbconn= PQconnectdb()
+	
 
 	//
 
+}
+private: System::Void ZALOGUJ_WYKL_BTN_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	//
+	this->Hide();
+	Ekran_Glowny_Wykl^ EKR_GL_Wykl = gcnew Ekran_Glowny_Wykl();
+	EKR_GL_Wykl->ShowDialog();
 }
 };
 }

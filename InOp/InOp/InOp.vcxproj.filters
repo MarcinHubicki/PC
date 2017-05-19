@@ -21,6 +21,9 @@
     <ClCompile Include="Ekran_Glowny.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ekran_Glowny_Wykl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InOp.h">
@@ -29,9 +32,15 @@
     <ClInclude Include="Ekran_Glowny.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Ekran_Glowny_Wykl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="InOp.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekran_Glowny.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
