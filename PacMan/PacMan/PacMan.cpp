@@ -4,6 +4,7 @@
 
 PacMan::PacMan()
 {
+	_kierunek_Poruszania = kierunek::LEFT;
 }
 
 

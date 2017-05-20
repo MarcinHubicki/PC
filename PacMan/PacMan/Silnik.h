@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <Windows.h>
 #include "PacMan.h"
 #include  <fstream>
 #include <conio.h>
@@ -12,15 +13,20 @@
 #define ARROW_LEFT 75
 #define PREF 224
 
+using std::cin;
+using std::cout;
+using std::endl;
 /*
-==========IMPORTANT CODES==========================
+==============IMPORTANT CODES==========================
 0-EMPTY
-1-WALL
+1-WALL(Horizontal)
 2-BEAD
+3-ENEMY
 4-LOOKING LEFT
 5-LOOKING RIGHT
 6-LOOKING DOWN
 7-LOOKING UP
+9-WALL(Vertical)
 ====================================================
 */
 
@@ -59,5 +65,7 @@ protected:
 	bool Sprawdz_Prawo();
 
 	bool Sprawdz_klaw();
+	void Odswierz_wiersz();
+	void Odswierz_kolumne();
 };
 
