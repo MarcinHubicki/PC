@@ -3,6 +3,7 @@
 #include "Ekran_Glowny_Wykl.h"
 #include <libpq\libpq-fs.h>
 #include <libpq-fe.h>
+#include <stdio.h>
 
 namespace InOp {
 
@@ -68,6 +69,7 @@ namespace InOp {
 	private: System::Windows::Forms::TextBox^  NAZW_STUD_TXTB;
 	private: System::Windows::Forms::Label^  NAZW_STUD_LBL;
 	private: System::Windows::Forms::Button^  ZALOGUJ_WYKL_BTN;
+	private: System::Windows::Forms::Button^  CONN_BTN;
 
 	protected:
 
@@ -106,6 +108,7 @@ namespace InOp {
 			this->NAZW_STUD_TXTB = (gcnew System::Windows::Forms::TextBox());
 			this->NAZW_STUD_LBL = (gcnew System::Windows::Forms::Label());
 			this->ZALOGUJ_WYKL_BTN = (gcnew System::Windows::Forms::Button());
+			this->CONN_BTN = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// ZALOGUJ_STUD_BTN
@@ -246,12 +249,23 @@ namespace InOp {
 			this->ZALOGUJ_WYKL_BTN->UseVisualStyleBackColor = true;
 			this->ZALOGUJ_WYKL_BTN->Click += gcnew System::EventHandler(this, &InOp::ZALOGUJ_WYKL_BTN_Click);
 			// 
+			// CONN_BTN
+			// 
+			this->CONN_BTN->Location = System::Drawing::Point(212, 309);
+			this->CONN_BTN->Name = L"CONN_BTN";
+			this->CONN_BTN->Size = System::Drawing::Size(68, 24);
+			this->CONN_BTN->TabIndex = 16;
+			this->CONN_BTN->Text = L"Connect";
+			this->CONN_BTN->UseVisualStyleBackColor = true;
+			this->CONN_BTN->Click += gcnew System::EventHandler(this, &InOp::CONN_BTN_Click);
+			// 
 			// InOp
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->ClientSize = System::Drawing::Size(504, 361);
+			this->Controls->Add(this->CONN_BTN);
 			this->Controls->Add(this->ZALOGUJ_WYKL_BTN);
 			this->Controls->Add(this->NAZW_STUD_LBL);
 			this->Controls->Add(this->NAZW_STUD_TXTB);
@@ -283,9 +297,8 @@ private: System::Void ZALOGUJ_BTN_Click(System::Object^  sender, System::EventAr
 	this->Hide();
 	Ekran_Glowny^ EKR_GL = gcnew Ekran_Glowny();
 	EKR_GL->ShowDialog();
+
 	
-	PGconn * dbconn;
-	//dbconn= PQconnectdb()
 	
 
 	//
@@ -298,5 +311,31 @@ private: System::Void ZALOGUJ_WYKL_BTN_Click(System::Object^  sender, System::Ev
 	Ekran_Glowny_Wykl^ EKR_GL_Wykl = gcnew Ekran_Glowny_Wykl();
 	EKR_GL_Wykl->ShowDialog();
 }
+private: System::Void CONN_BTN_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	//
+	/*char *db = "zhglkrdc";
+	char *dbserver = "horton.elephantsql.com";
+	char *uname = "zhglkrdc";
+	char *pass = "NnYGJSDZTRwQ3LecyKHTf4KOSJ6E7fNo";
+	char     buff[200];
+
+	sprintf(buff, "dbname=%s host=%s port=5432 user=%s password=%s",
+		db, dbserver, uname, pass);
+
+	PGconn * dbconn;
+	dbconn = PQconnectdb(buff);
+
+	if (PQstatus(dbconn) == CONNECTION_BAD)
+	{
+		MessageBox::Show("Unable to connect");
+	}
+	else
+	{
+		MessageBox::Show("Connected");
+	}
+*/
+}
+
 };
 }
