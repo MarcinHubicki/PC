@@ -35,6 +35,9 @@
     <ClInclude Include="Ekran_Glowny_Wykl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="InOp.resx">
@@ -43,5 +46,18 @@
     <EmbeddedResource Include="Ekran_Glowny.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ekran_Glowny_Wykl.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="InOp.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\Desktop\nowe-logo-uniwersytetu-lodzkieg-rebranding (1).png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

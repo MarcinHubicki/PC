@@ -78,9 +78,12 @@
     <IncludePath>C:\Program Files\PostgreSQL\9.6\include;$(IncludePath)</IncludePath>
     <ReferencePath>C:\Program Files\PostgreSQL\9.6\include\libpq;$(ReferencePath)</ReferencePath>
     <SourcePath>C:\Program Files\PostgreSQL\9.6\include;$(SourcePath)</SourcePath>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files\PostgreSQL\9.6\include;$(IncludePath)</IncludePath>
+    <ReferencePath>C:\Program Files\PostgreSQL\9.6\include\libpq;C:\Program Files\PostgreSQL\9.6\include;C:\Program Files\PostgreSQL\9.6\lib;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -95,10 +98,10 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>libpq.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <AdditionalLibraryDirectories>C:\Program Files\PostgreSQL\9.6\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files\PostgreSQL\9.6\lib;C:\Program Files\PostgreSQL\9.6\include\libpq;C:\Program Files\PostgreSQL\9.6\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -109,6 +112,9 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>C:\Program Files\PostgreSQL\9.6\include\libpq;C:\Program Files\PostgreSQL\9.6\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -130,6 +136,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\..\..\Downloads\Npgsql-2.2.3-net20\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -151,6 +160,7 @@
     <ClInclude Include="InOp.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Ekran_Glowny.resx">
@@ -162,6 +172,12 @@
     <EmbeddedResource Include="InOp.resx">
       <DependentUpon>InOp.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="InOp.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\Desktop\nowe-logo-uniwersytetu-lodzkieg-rebranding (1).png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
