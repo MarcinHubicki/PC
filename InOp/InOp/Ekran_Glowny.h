@@ -42,6 +42,13 @@ namespace InOp {
 	private: System::Windows::Forms::Label^  STUD_MENU_LBL;
 
 	private: System::Windows::Forms::Panel^  STUD_MAIN_PANEL;
+	private: System::Windows::Forms::TabControl^  STUD_MAIN_TAB_CTRL;
+	private: System::Windows::Forms::TabPage^  DOSTEPNE_TESTY_TAB;
+	private: System::Windows::Forms::TabPage^  HISTORIA_TAB;
+	private: System::Windows::Forms::TabPage^  EXTRA1_TAB;
+
+
+
 
 
 
@@ -67,7 +74,13 @@ namespace InOp {
 			this->STUD_MENU_PANEL = (gcnew System::Windows::Forms::Panel());
 			this->STUD_MENU_LBL = (gcnew System::Windows::Forms::Label());
 			this->STUD_MAIN_PANEL = (gcnew System::Windows::Forms::Panel());
+			this->STUD_MAIN_TAB_CTRL = (gcnew System::Windows::Forms::TabControl());
+			this->DOSTEPNE_TESTY_TAB = (gcnew System::Windows::Forms::TabPage());
+			this->HISTORIA_TAB = (gcnew System::Windows::Forms::TabPage());
+			this->EXTRA1_TAB = (gcnew System::Windows::Forms::TabPage());
 			this->STUD_MENU_PANEL->SuspendLayout();
+			this->STUD_MAIN_PANEL->SuspendLayout();
+			this->STUD_MAIN_TAB_CTRL->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// DOST_TEST_BTN
@@ -78,6 +91,7 @@ namespace InOp {
 			this->DOST_TEST_BTN->TabIndex = 1;
 			this->DOST_TEST_BTN->Text = L"Dostepne Testy";
 			this->DOST_TEST_BTN->UseVisualStyleBackColor = true;
+			this->DOST_TEST_BTN->Click += gcnew System::EventHandler(this, &Ekran_Glowny::DOST_TEST_BTN_Click);
 			// 
 			// HIST_STUD_BTN
 			// 
@@ -87,6 +101,7 @@ namespace InOp {
 			this->HIST_STUD_BTN->TabIndex = 2;
 			this->HIST_STUD_BTN->Text = L"Historia";
 			this->HIST_STUD_BTN->UseVisualStyleBackColor = true;
+			this->HIST_STUD_BTN->Click += gcnew System::EventHandler(this, &Ekran_Glowny::HIST_STUD_BTN_Click);
 			// 
 			// STUD_MENU_PANEL
 			// 
@@ -113,10 +128,55 @@ namespace InOp {
 			// STUD_MAIN_PANEL
 			// 
 			this->STUD_MAIN_PANEL->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->STUD_MAIN_PANEL->Controls->Add(this->STUD_MAIN_TAB_CTRL);
 			this->STUD_MAIN_PANEL->Location = System::Drawing::Point(200, 0);
 			this->STUD_MAIN_PANEL->Name = L"STUD_MAIN_PANEL";
 			this->STUD_MAIN_PANEL->Size = System::Drawing::Size(490, 360);
 			this->STUD_MAIN_PANEL->TabIndex = 4;
+			// 
+			// STUD_MAIN_TAB_CTRL
+			// 
+			this->STUD_MAIN_TAB_CTRL->Controls->Add(this->DOSTEPNE_TESTY_TAB);
+			this->STUD_MAIN_TAB_CTRL->Controls->Add(this->HISTORIA_TAB);
+			this->STUD_MAIN_TAB_CTRL->Controls->Add(this->EXTRA1_TAB);
+			this->STUD_MAIN_TAB_CTRL->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->STUD_MAIN_TAB_CTRL->ItemSize = System::Drawing::Size(10, 1);
+			this->STUD_MAIN_TAB_CTRL->Location = System::Drawing::Point(0, 0);
+			this->STUD_MAIN_TAB_CTRL->Name = L"STUD_MAIN_TAB_CTRL";
+			this->STUD_MAIN_TAB_CTRL->Padding = System::Drawing::Point(0, 0);
+			this->STUD_MAIN_TAB_CTRL->SelectedIndex = 0;
+			this->STUD_MAIN_TAB_CTRL->Size = System::Drawing::Size(490, 360);
+			this->STUD_MAIN_TAB_CTRL->TabIndex = 0;
+			// 
+			// DOSTEPNE_TESTY_TAB
+			// 
+			this->DOSTEPNE_TESTY_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->DOSTEPNE_TESTY_TAB->Location = System::Drawing::Point(4, 5);
+			this->DOSTEPNE_TESTY_TAB->Margin = System::Windows::Forms::Padding(0);
+			this->DOSTEPNE_TESTY_TAB->Name = L"DOSTEPNE_TESTY_TAB";
+			this->DOSTEPNE_TESTY_TAB->Size = System::Drawing::Size(482, 351);
+			this->DOSTEPNE_TESTY_TAB->TabIndex = 0;
+			this->DOSTEPNE_TESTY_TAB->Text = L" ";
+			// 
+			// HISTORIA_TAB
+			// 
+			this->HISTORIA_TAB->Location = System::Drawing::Point(4, 5);
+			this->HISTORIA_TAB->Name = L"HISTORIA_TAB";
+			this->HISTORIA_TAB->Padding = System::Windows::Forms::Padding(3);
+			this->HISTORIA_TAB->Size = System::Drawing::Size(482, 351);
+			this->HISTORIA_TAB->TabIndex = 1;
+			this->HISTORIA_TAB->Text = L" ";
+			this->HISTORIA_TAB->UseVisualStyleBackColor = true;
+			// 
+			// EXTRA1_TAB
+			// 
+			this->EXTRA1_TAB->Location = System::Drawing::Point(4, 5);
+			this->EXTRA1_TAB->Name = L"EXTRA1_TAB";
+			this->EXTRA1_TAB->Padding = System::Windows::Forms::Padding(3);
+			this->EXTRA1_TAB->Size = System::Drawing::Size(482, 351);
+			this->EXTRA1_TAB->TabIndex = 2;
+			this->EXTRA1_TAB->Text = L" ";
+			this->EXTRA1_TAB->UseVisualStyleBackColor = true;
 			// 
 			// Ekran_Glowny
 			// 
@@ -130,8 +190,24 @@ namespace InOp {
 			this->Text = L"Aplikacja do testow";
 			this->STUD_MENU_PANEL->ResumeLayout(false);
 			this->STUD_MENU_PANEL->PerformLayout();
+			this->STUD_MAIN_PANEL->ResumeLayout(false);
+			this->STUD_MAIN_TAB_CTRL->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
+private: System::Void DOST_TEST_BTN_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	//testy
+	DOSTEPNE_TESTY_TAB->Show();
+
+}
+
+
+private: System::Void HIST_STUD_BTN_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	//hist
+	HISTORIA_TAB->Show();
+
+}
 };
 }
