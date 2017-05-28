@@ -82,7 +82,7 @@ int main()
 		i++;
 	}
 	cout << "HITS:" << hits << endl;
-	
+	cin.
 
 //	system("pause");
 	return 0;

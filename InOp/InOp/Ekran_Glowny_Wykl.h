@@ -53,6 +53,8 @@ namespace InOp {
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Label^  DATA_ZAKON_LBL;
 	private: System::Windows::Forms::TextBox^  DATA_ROZP_TXTB;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label2;
 
 	protected:
 
@@ -79,20 +81,24 @@ namespace InOp {
 			this->STUD_MAIN_PANEL = (gcnew System::Windows::Forms::Panel());
 			this->WYKL_MAIN_TAB_CTRL = (gcnew System::Windows::Forms::TabControl());
 			this->NOWY_TEST_TAB = (gcnew System::Windows::Forms::TabPage());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->DATA_ZAKON_LBL = (gcnew System::Windows::Forms::Label());
+			this->DATA_ROZP_TXTB = (gcnew System::Windows::Forms::TextBox());
 			this->DATA_ROZP_LBL = (gcnew System::Windows::Forms::Label());
 			this->PRZEDMIOT_LBL = (gcnew System::Windows::Forms::Label());
 			this->NOWY_TEST_NAZW_LBL = (gcnew System::Windows::Forms::Label());
 			this->NOWY_TEST_NAZW_TXTB = (gcnew System::Windows::Forms::TextBox());
 			this->HISTORIA_TAB = (gcnew System::Windows::Forms::TabPage());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->RAPORTY_TAB = (gcnew System::Windows::Forms::TabPage());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->WYSKL_EXTRA1 = (gcnew System::Windows::Forms::TabPage());
-			this->DATA_ROZP_TXTB = (gcnew System::Windows::Forms::TextBox());
-			this->DATA_ZAKON_LBL = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->WYKL_MENU_PANEL->SuspendLayout();
 			this->STUD_MAIN_PANEL->SuspendLayout();
 			this->WYKL_MAIN_TAB_CTRL->SuspendLayout();
 			this->NOWY_TEST_TAB->SuspendLayout();
+			this->HISTORIA_TAB->SuspendLayout();
+			this->RAPORTY_TAB->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// NOWY_TEST_BTN
@@ -164,7 +170,7 @@ namespace InOp {
 			this->WYKL_MAIN_TAB_CTRL->Controls->Add(this->RAPORTY_TAB);
 			this->WYKL_MAIN_TAB_CTRL->Controls->Add(this->WYSKL_EXTRA1);
 			this->WYKL_MAIN_TAB_CTRL->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->WYKL_MAIN_TAB_CTRL->ItemSize = System::Drawing::Size(10, 10);
+			this->WYKL_MAIN_TAB_CTRL->ItemSize = System::Drawing::Size(10, 1);
 			this->WYKL_MAIN_TAB_CTRL->Location = System::Drawing::Point(0, 0);
 			this->WYKL_MAIN_TAB_CTRL->Margin = System::Windows::Forms::Padding(0);
 			this->WYKL_MAIN_TAB_CTRL->Name = L"WYKL_MAIN_TAB_CTRL";
@@ -175,6 +181,7 @@ namespace InOp {
 			// 
 			// NOWY_TEST_TAB
 			// 
+			this->NOWY_TEST_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->NOWY_TEST_TAB->Controls->Add(this->textBox1);
 			this->NOWY_TEST_TAB->Controls->Add(this->DATA_ZAKON_LBL);
 			this->NOWY_TEST_TAB->Controls->Add(this->DATA_ROZP_TXTB);
@@ -188,7 +195,29 @@ namespace InOp {
 			this->NOWY_TEST_TAB->Size = System::Drawing::Size(482, 342);
 			this->NOWY_TEST_TAB->TabIndex = 0;
 			this->NOWY_TEST_TAB->Text = L" ";
-			this->NOWY_TEST_TAB->UseVisualStyleBackColor = true;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(374, 100);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(80, 20);
+			this->textBox1->TabIndex = 6;
+			// 
+			// DATA_ZAKON_LBL
+			// 
+			this->DATA_ZAKON_LBL->AutoSize = true;
+			this->DATA_ZAKON_LBL->Location = System::Drawing::Point(265, 100);
+			this->DATA_ZAKON_LBL->Name = L"DATA_ZAKON_LBL";
+			this->DATA_ZAKON_LBL->Size = System::Drawing::Size(93, 13);
+			this->DATA_ZAKON_LBL->TabIndex = 5;
+			this->DATA_ZAKON_LBL->Text = L"Data zakoñczenia";
+			// 
+			// DATA_ROZP_TXTB
+			// 
+			this->DATA_ROZP_TXTB->Location = System::Drawing::Point(120, 100);
+			this->DATA_ROZP_TXTB->Name = L"DATA_ROZP_TXTB";
+			this->DATA_ROZP_TXTB->Size = System::Drawing::Size(80, 20);
+			this->DATA_ROZP_TXTB->TabIndex = 4;
 			// 
 			// DATA_ROZP_LBL
 			// 
@@ -226,23 +255,43 @@ namespace InOp {
 			// 
 			// HISTORIA_TAB
 			// 
-			this->HISTORIA_TAB->Location = System::Drawing::Point(4, 14);
+			this->HISTORIA_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->HISTORIA_TAB->Controls->Add(this->label1);
+			this->HISTORIA_TAB->Location = System::Drawing::Point(4, 5);
 			this->HISTORIA_TAB->Name = L"HISTORIA_TAB";
 			this->HISTORIA_TAB->Padding = System::Windows::Forms::Padding(3);
-			this->HISTORIA_TAB->Size = System::Drawing::Size(482, 342);
+			this->HISTORIA_TAB->Size = System::Drawing::Size(482, 351);
 			this->HISTORIA_TAB->TabIndex = 1;
 			this->HISTORIA_TAB->Text = L" ";
-			this->HISTORIA_TAB->UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(137, 107);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(21, 13);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"Lul";
 			// 
 			// RAPORTY_TAB
 			// 
+			this->RAPORTY_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->RAPORTY_TAB->Controls->Add(this->label2);
 			this->RAPORTY_TAB->Location = System::Drawing::Point(4, 14);
 			this->RAPORTY_TAB->Name = L"RAPORTY_TAB";
 			this->RAPORTY_TAB->Padding = System::Windows::Forms::Padding(3);
 			this->RAPORTY_TAB->Size = System::Drawing::Size(482, 342);
 			this->RAPORTY_TAB->TabIndex = 2;
 			this->RAPORTY_TAB->Text = L" ";
-			this->RAPORTY_TAB->UseVisualStyleBackColor = true;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(131, 107);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(24, 13);
+			this->label2->TabIndex = 0;
+			this->label2->Text = L"cuœ";
 			// 
 			// WYSKL_EXTRA1
 			// 
@@ -253,29 +302,6 @@ namespace InOp {
 			this->WYSKL_EXTRA1->Size = System::Drawing::Size(482, 342);
 			this->WYSKL_EXTRA1->TabIndex = 3;
 			this->WYSKL_EXTRA1->Text = L" ";
-			// 
-			// DATA_ROZP_TXTB
-			// 
-			this->DATA_ROZP_TXTB->Location = System::Drawing::Point(120, 100);
-			this->DATA_ROZP_TXTB->Name = L"DATA_ROZP_TXTB";
-			this->DATA_ROZP_TXTB->Size = System::Drawing::Size(80, 20);
-			this->DATA_ROZP_TXTB->TabIndex = 4;
-			// 
-			// DATA_ZAKON_LBL
-			// 
-			this->DATA_ZAKON_LBL->AutoSize = true;
-			this->DATA_ZAKON_LBL->Location = System::Drawing::Point(265, 100);
-			this->DATA_ZAKON_LBL->Name = L"DATA_ZAKON_LBL";
-			this->DATA_ZAKON_LBL->Size = System::Drawing::Size(93, 13);
-			this->DATA_ZAKON_LBL->TabIndex = 5;
-			this->DATA_ZAKON_LBL->Text = L"Data zakoñczenia";
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(374, 100);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(80, 20);
-			this->textBox1->TabIndex = 6;
 			// 
 			// Ekran_Glowny_Wykl
 			// 
@@ -293,6 +319,10 @@ namespace InOp {
 			this->WYKL_MAIN_TAB_CTRL->ResumeLayout(false);
 			this->NOWY_TEST_TAB->ResumeLayout(false);
 			this->NOWY_TEST_TAB->PerformLayout();
+			this->HISTORIA_TAB->ResumeLayout(false);
+			this->HISTORIA_TAB->PerformLayout();
+			this->RAPORTY_TAB->ResumeLayout(false);
+			this->RAPORTY_TAB->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -300,19 +330,23 @@ namespace InOp {
 	private: System::Void NOWY_TEST_BTN_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
 		//nowy test
-		NOWY_TEST_TAB->Show();
+		//NOWY_TEST_TAB->Show();
+		WYKL_MAIN_TAB_CTRL->SelectTab("NOWY_TEST_TAB");
+
 
 	}
 private: System::Void HIST_WYKL_BTN_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	//HISTORIA
-	HISTORIA_TAB->Show();
+	//HISTORIA_TAB->Show();
+	WYKL_MAIN_TAB_CTRL->SelectTab("HISTORIA_TAB");
+
 
 }
 private: System::Void RAPORTY_BTN_Click(System::Object^  sender, System::EventArgs^  e) 
 {
 	//RAPORTY
-	RAPORTY_TAB->Show();
+	WYKL_MAIN_TAB_CTRL->SelectTab("RAPORTY_TAB");
 
 }
 

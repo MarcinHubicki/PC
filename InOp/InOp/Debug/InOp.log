@@ -1,4 +1,5 @@
 ﻿  Ekran_Glowny.cpp
+  Ekran_Glowny_Wykl.cpp
   InOp.cpp
 InOp.cpp(9): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
   Generating Code...

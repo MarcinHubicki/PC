@@ -151,32 +151,32 @@ namespace InOp {
 			// DOSTEPNE_TESTY_TAB
 			// 
 			this->DOSTEPNE_TESTY_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->DOSTEPNE_TESTY_TAB->Location = System::Drawing::Point(4, 5);
+			this->DOSTEPNE_TESTY_TAB->Location = System::Drawing::Point(4, 14);
 			this->DOSTEPNE_TESTY_TAB->Margin = System::Windows::Forms::Padding(0);
 			this->DOSTEPNE_TESTY_TAB->Name = L"DOSTEPNE_TESTY_TAB";
-			this->DOSTEPNE_TESTY_TAB->Size = System::Drawing::Size(482, 351);
+			this->DOSTEPNE_TESTY_TAB->Size = System::Drawing::Size(482, 342);
 			this->DOSTEPNE_TESTY_TAB->TabIndex = 0;
 			this->DOSTEPNE_TESTY_TAB->Text = L" ";
 			// 
 			// HISTORIA_TAB
 			// 
-			this->HISTORIA_TAB->Location = System::Drawing::Point(4, 5);
+			this->HISTORIA_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->HISTORIA_TAB->Location = System::Drawing::Point(4, 14);
 			this->HISTORIA_TAB->Name = L"HISTORIA_TAB";
 			this->HISTORIA_TAB->Padding = System::Windows::Forms::Padding(3);
-			this->HISTORIA_TAB->Size = System::Drawing::Size(482, 351);
+			this->HISTORIA_TAB->Size = System::Drawing::Size(482, 342);
 			this->HISTORIA_TAB->TabIndex = 1;
 			this->HISTORIA_TAB->Text = L" ";
-			this->HISTORIA_TAB->UseVisualStyleBackColor = true;
 			// 
 			// EXTRA1_TAB
 			// 
+			this->EXTRA1_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->EXTRA1_TAB->Location = System::Drawing::Point(4, 5);
 			this->EXTRA1_TAB->Name = L"EXTRA1_TAB";
 			this->EXTRA1_TAB->Padding = System::Windows::Forms::Padding(3);
 			this->EXTRA1_TAB->Size = System::Drawing::Size(482, 351);
 			this->EXTRA1_TAB->TabIndex = 2;
 			this->EXTRA1_TAB->Text = L" ";
-			this->EXTRA1_TAB->UseVisualStyleBackColor = true;
 			// 
 			// Ekran_Glowny
 			// 
@@ -198,7 +198,8 @@ namespace InOp {
 private: System::Void DOST_TEST_BTN_Click(System::Object^  sender, System::EventArgs^  e) 
 {
 	//testy
-	DOSTEPNE_TESTY_TAB->Show();
+	//DOSTEPNE_TESTY_TAB->Show();
+	STUD_MAIN_TAB_CTRL->SelectTab("DOSTEPNE_TESTY_TAB");
 
 }
 
@@ -206,7 +207,8 @@ private: System::Void DOST_TEST_BTN_Click(System::Object^  sender, System::Event
 private: System::Void HIST_STUD_BTN_Click(System::Object^  sender, System::EventArgs^  e) 
 {
 	//hist
-	HISTORIA_TAB->Show();
+	STUD_MAIN_TAB_CTRL->SelectTab("HISTORIA_TAB");
+
 
 }
 };

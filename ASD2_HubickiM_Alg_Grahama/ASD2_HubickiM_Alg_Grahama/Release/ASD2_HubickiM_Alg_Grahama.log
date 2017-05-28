@@ -1,0 +1,8 @@
+﻿  ASD2_HubickiM_Alg_Grahama.cpp
+ASD2_HubickiM_Alg_Grahama.cpp(90): warning C4018: '<': signed/unsigned mismatch
+ASD2_HubickiM_Alg_Grahama.cpp(96): warning C4018: '<': signed/unsigned mismatch
+  Generating code
+  All 81 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ASD2_HubickiM_Alg_Grahama.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\ASD2_HubickiM_Alg_Grahama\Release\ASD2_HubickiM_Alg_Grahama.exe
+  ASD2_HubickiM_Alg_Grahama.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\ASD2_HubickiM_Alg_Grahama\Release\ASD2_HubickiM_Alg_Grahama.pdb (Full PDB)
