@@ -55,6 +55,14 @@ namespace InOp {
 	private: System::Windows::Forms::TextBox^  DATA_ROZP_TXTB;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  CZAS_TESTU_LBL;
+	private: System::Windows::Forms::TextBox^  CZAS_TESTU_TXTB;
+	private: System::Windows::Forms::TextBox^  IL_PYTAN_TRUDNYCH_TXTB;
+	private: System::Windows::Forms::Label^  IL_PYTAN_TRUDNYCH_LBL;
+	private: System::Windows::Forms::TextBox^  IL_PYTAN_SREDNICH_TXTB;
+	private: System::Windows::Forms::Label^  IL_PYTAN_SREDNICH_LBL;
+	private: System::Windows::Forms::Label^  IL_PYTAN_LATWYCH_LBL;
+	private: System::Windows::Forms::TextBox^  IL_PYTAN_LATWYCH_TXTB;
 
 	protected:
 
@@ -93,6 +101,14 @@ namespace InOp {
 			this->RAPORTY_TAB = (gcnew System::Windows::Forms::TabPage());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->WYSKL_EXTRA1 = (gcnew System::Windows::Forms::TabPage());
+			this->CZAS_TESTU_TXTB = (gcnew System::Windows::Forms::TextBox());
+			this->CZAS_TESTU_LBL = (gcnew System::Windows::Forms::Label());
+			this->IL_PYTAN_LATWYCH_TXTB = (gcnew System::Windows::Forms::TextBox());
+			this->IL_PYTAN_LATWYCH_LBL = (gcnew System::Windows::Forms::Label());
+			this->IL_PYTAN_SREDNICH_LBL = (gcnew System::Windows::Forms::Label());
+			this->IL_PYTAN_SREDNICH_TXTB = (gcnew System::Windows::Forms::TextBox());
+			this->IL_PYTAN_TRUDNYCH_LBL = (gcnew System::Windows::Forms::Label());
+			this->IL_PYTAN_TRUDNYCH_TXTB = (gcnew System::Windows::Forms::TextBox());
 			this->WYKL_MENU_PANEL->SuspendLayout();
 			this->STUD_MAIN_PANEL->SuspendLayout();
 			this->WYKL_MAIN_TAB_CTRL->SuspendLayout();
@@ -165,12 +181,12 @@ namespace InOp {
 			// 
 			// WYKL_MAIN_TAB_CTRL
 			// 
+			this->WYKL_MAIN_TAB_CTRL->Controls->Add(this->WYSKL_EXTRA1);
 			this->WYKL_MAIN_TAB_CTRL->Controls->Add(this->NOWY_TEST_TAB);
 			this->WYKL_MAIN_TAB_CTRL->Controls->Add(this->HISTORIA_TAB);
 			this->WYKL_MAIN_TAB_CTRL->Controls->Add(this->RAPORTY_TAB);
-			this->WYKL_MAIN_TAB_CTRL->Controls->Add(this->WYSKL_EXTRA1);
 			this->WYKL_MAIN_TAB_CTRL->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->WYKL_MAIN_TAB_CTRL->ItemSize = System::Drawing::Size(10, 1);
+			this->WYKL_MAIN_TAB_CTRL->ItemSize = System::Drawing::Size(1, 1);
 			this->WYKL_MAIN_TAB_CTRL->Location = System::Drawing::Point(0, 0);
 			this->WYKL_MAIN_TAB_CTRL->Margin = System::Windows::Forms::Padding(0);
 			this->WYKL_MAIN_TAB_CTRL->Name = L"WYKL_MAIN_TAB_CTRL";
@@ -182,6 +198,14 @@ namespace InOp {
 			// NOWY_TEST_TAB
 			// 
 			this->NOWY_TEST_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->NOWY_TEST_TAB->Controls->Add(this->IL_PYTAN_TRUDNYCH_TXTB);
+			this->NOWY_TEST_TAB->Controls->Add(this->IL_PYTAN_TRUDNYCH_LBL);
+			this->NOWY_TEST_TAB->Controls->Add(this->IL_PYTAN_SREDNICH_TXTB);
+			this->NOWY_TEST_TAB->Controls->Add(this->IL_PYTAN_SREDNICH_LBL);
+			this->NOWY_TEST_TAB->Controls->Add(this->IL_PYTAN_LATWYCH_LBL);
+			this->NOWY_TEST_TAB->Controls->Add(this->IL_PYTAN_LATWYCH_TXTB);
+			this->NOWY_TEST_TAB->Controls->Add(this->CZAS_TESTU_LBL);
+			this->NOWY_TEST_TAB->Controls->Add(this->CZAS_TESTU_TXTB);
 			this->NOWY_TEST_TAB->Controls->Add(this->textBox1);
 			this->NOWY_TEST_TAB->Controls->Add(this->DATA_ZAKON_LBL);
 			this->NOWY_TEST_TAB->Controls->Add(this->DATA_ROZP_TXTB);
@@ -214,7 +238,7 @@ namespace InOp {
 			// 
 			// DATA_ROZP_TXTB
 			// 
-			this->DATA_ROZP_TXTB->Location = System::Drawing::Point(120, 100);
+			this->DATA_ROZP_TXTB->Location = System::Drawing::Point(119, 100);
 			this->DATA_ROZP_TXTB->Name = L"DATA_ROZP_TXTB";
 			this->DATA_ROZP_TXTB->Size = System::Drawing::Size(80, 20);
 			this->DATA_ROZP_TXTB->TabIndex = 4;
@@ -240,7 +264,7 @@ namespace InOp {
 			// NOWY_TEST_NAZW_LBL
 			// 
 			this->NOWY_TEST_NAZW_LBL->AutoSize = true;
-			this->NOWY_TEST_NAZW_LBL->Location = System::Drawing::Point(6, 50);
+			this->NOWY_TEST_NAZW_LBL->Location = System::Drawing::Point(10, 50);
 			this->NOWY_TEST_NAZW_LBL->Name = L"NOWY_TEST_NAZW_LBL";
 			this->NOWY_TEST_NAZW_LBL->Size = System::Drawing::Size(70, 13);
 			this->NOWY_TEST_NAZW_LBL->TabIndex = 1;
@@ -257,10 +281,10 @@ namespace InOp {
 			// 
 			this->HISTORIA_TAB->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->HISTORIA_TAB->Controls->Add(this->label1);
-			this->HISTORIA_TAB->Location = System::Drawing::Point(4, 5);
+			this->HISTORIA_TAB->Location = System::Drawing::Point(4, 14);
 			this->HISTORIA_TAB->Name = L"HISTORIA_TAB";
 			this->HISTORIA_TAB->Padding = System::Windows::Forms::Padding(3);
-			this->HISTORIA_TAB->Size = System::Drawing::Size(482, 351);
+			this->HISTORIA_TAB->Size = System::Drawing::Size(482, 342);
 			this->HISTORIA_TAB->TabIndex = 1;
 			this->HISTORIA_TAB->Text = L" ";
 			// 
@@ -296,12 +320,76 @@ namespace InOp {
 			// WYSKL_EXTRA1
 			// 
 			this->WYSKL_EXTRA1->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->WYSKL_EXTRA1->Location = System::Drawing::Point(4, 14);
+			this->WYSKL_EXTRA1->Location = System::Drawing::Point(4, 5);
 			this->WYSKL_EXTRA1->Name = L"WYSKL_EXTRA1";
 			this->WYSKL_EXTRA1->Padding = System::Windows::Forms::Padding(3);
-			this->WYSKL_EXTRA1->Size = System::Drawing::Size(482, 342);
+			this->WYSKL_EXTRA1->Size = System::Drawing::Size(482, 351);
 			this->WYSKL_EXTRA1->TabIndex = 3;
 			this->WYSKL_EXTRA1->Text = L" ";
+			// 
+			// CZAS_TESTU_TXTB
+			// 
+			this->CZAS_TESTU_TXTB->Location = System::Drawing::Point(120, 160);
+			this->CZAS_TESTU_TXTB->Name = L"CZAS_TESTU_TXTB";
+			this->CZAS_TESTU_TXTB->Size = System::Drawing::Size(79, 20);
+			this->CZAS_TESTU_TXTB->TabIndex = 7;
+			// 
+			// CZAS_TESTU_LBL
+			// 
+			this->CZAS_TESTU_LBL->AutoSize = true;
+			this->CZAS_TESTU_LBL->Location = System::Drawing::Point(10, 163);
+			this->CZAS_TESTU_LBL->Name = L"CZAS_TESTU_LBL";
+			this->CZAS_TESTU_LBL->Size = System::Drawing::Size(56, 13);
+			this->CZAS_TESTU_LBL->TabIndex = 8;
+			this->CZAS_TESTU_LBL->Text = L"Czas testu";
+			// 
+			// IL_PYTAN_LATWYCH_TXTB
+			// 
+			this->IL_PYTAN_LATWYCH_TXTB->Location = System::Drawing::Point(115, 222);
+			this->IL_PYTAN_LATWYCH_TXTB->Name = L"IL_PYTAN_LATWYCH_TXTB";
+			this->IL_PYTAN_LATWYCH_TXTB->Size = System::Drawing::Size(45, 20);
+			this->IL_PYTAN_LATWYCH_TXTB->TabIndex = 9;
+			// 
+			// IL_PYTAN_LATWYCH_LBL
+			// 
+			this->IL_PYTAN_LATWYCH_LBL->AutoSize = true;
+			this->IL_PYTAN_LATWYCH_LBL->Location = System::Drawing::Point(10, 225);
+			this->IL_PYTAN_LATWYCH_LBL->Name = L"IL_PYTAN_LATWYCH_LBL";
+			this->IL_PYTAN_LATWYCH_LBL->Size = System::Drawing::Size(99, 13);
+			this->IL_PYTAN_LATWYCH_LBL->TabIndex = 10;
+			this->IL_PYTAN_LATWYCH_LBL->Text = L"Iloœæ pytañ ³atwych";
+			// 
+			// IL_PYTAN_SREDNICH_LBL
+			// 
+			this->IL_PYTAN_SREDNICH_LBL->AutoSize = true;
+			this->IL_PYTAN_SREDNICH_LBL->Location = System::Drawing::Point(166, 225);
+			this->IL_PYTAN_SREDNICH_LBL->Name = L"IL_PYTAN_SREDNICH_LBL";
+			this->IL_PYTAN_SREDNICH_LBL->Size = System::Drawing::Size(101, 13);
+			this->IL_PYTAN_SREDNICH_LBL->TabIndex = 11;
+			this->IL_PYTAN_SREDNICH_LBL->Text = L"Iloœæ pytañ œrednich";
+			// 
+			// IL_PYTAN_SREDNICH_TXTB
+			// 
+			this->IL_PYTAN_SREDNICH_TXTB->Location = System::Drawing::Point(268, 222);
+			this->IL_PYTAN_SREDNICH_TXTB->Name = L"IL_PYTAN_SREDNICH_TXTB";
+			this->IL_PYTAN_SREDNICH_TXTB->Size = System::Drawing::Size(45, 20);
+			this->IL_PYTAN_SREDNICH_TXTB->TabIndex = 12;
+			// 
+			// IL_PYTAN_TRUDNYCH_LBL
+			// 
+			this->IL_PYTAN_TRUDNYCH_LBL->AutoSize = true;
+			this->IL_PYTAN_TRUDNYCH_LBL->Location = System::Drawing::Point(319, 225);
+			this->IL_PYTAN_TRUDNYCH_LBL->Name = L"IL_PYTAN_TRUDNYCH_LBL";
+			this->IL_PYTAN_TRUDNYCH_LBL->Size = System::Drawing::Size(102, 13);
+			this->IL_PYTAN_TRUDNYCH_LBL->TabIndex = 13;
+			this->IL_PYTAN_TRUDNYCH_LBL->Text = L"Iloœæ pytañ trudnych";
+			// 
+			// IL_PYTAN_TRUDNYCH_TXTB
+			// 
+			this->IL_PYTAN_TRUDNYCH_TXTB->Location = System::Drawing::Point(423, 222);
+			this->IL_PYTAN_TRUDNYCH_TXTB->Name = L"IL_PYTAN_TRUDNYCH_TXTB";
+			this->IL_PYTAN_TRUDNYCH_TXTB->Size = System::Drawing::Size(45, 20);
+			this->IL_PYTAN_TRUDNYCH_TXTB->TabIndex = 14;
 			// 
 			// Ekran_Glowny_Wykl
 			// 
