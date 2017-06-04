@@ -31,11 +31,28 @@ public:
 	long _Secound;
 	long _value;
 
-	struct Compare
+	struct Compare // porownuje 2 krawedzie?? 
 	{
-		bool operator () (const edge & E1, const edge & E2);
-		//bool operator < (const edge & E);
+		bool operator() (const edge& e1, const edge& e2) const
+		{
+			if (e1._value == e2._value)
+			{
+				if (e1._Secound == e2._Secound)
+				{
+					return e1._First < e2._First;
+				}
+
+				return e1._Secound < e2._Secound;
+			}
+
+			return e1._value < e2._value;
+		}
 	};
+	//struct Compare
+	//{
+	//	bool operator () (const edge & E1, const edge & E2);
+	//	//bool operator < (const edge & E);
+	//};
 
 
 };
@@ -131,12 +148,13 @@ void graph::Prim_Algorithm(long first_vertex_index)
 					if (repeatMST == false)
 					{
 						S1.insert(_V1[current]._Te[i]);
+						//cout << "INSERTED: " << _V1[current]._Te[i]._First << " " << _V1[current]._Te[i]._Secound << " " << _V1[current]._Te[i]._value<<endl;
 
 					}
 				}
 			}
 		}
-	//	View_Set(S1);
+//		View_Set(S1);
 		iter = S1.begin();
 		tmpE = *iter;
 
@@ -147,10 +165,13 @@ void graph::Prim_Algorithm(long first_vertex_index)
 		}
 
 		_MST.push_back(tmpE);
+//		View_Set(S1);
+//		cout<<endl << "MST PUSH: " << tmpE._First << " " << tmpE._Secound << " " << tmpE._value <<endl<< endl;
 		_V1[tmpE._First].MST = true;
 		_V1[tmpE._Secound].MST = true;
 
 		S1.erase(iter);
+	//	cout<<endl<<"DELETED from SET: " << tmpE._First << " " << tmpE._Secound << " " << tmpE._value << endl << endl;
 
 
 		j++;
@@ -182,6 +203,8 @@ void graph::View_MST()
 	cout << "MST: " << endl;
 	for (int i = 0; i < _MST.size(); i++)
 	{
+		// cout << _MST[i]._First << " " << _MST[i]._Secound<< " " << _MST[i]._value << endl;
+
 		cout << _V1[_MST[i]._First]._Name << " " << _V1[_MST[i]._Secound]._Name << " " << _MST[i]._value << endl;
 	}
 }
@@ -242,15 +265,15 @@ void graph::Print()
 
 }
 
-bool edge::Compare::operator()(const edge & E1, const edge & E2)
-{
-	if (E1._value >= E2._value)
-	{
-		return false;
-	}
-	else
-		return true;
-}
+//bool edge::Compare::operator()(const edge & E1, const edge & E2)
+//{
+//	if (E1._value > E2._value)
+//	{
+//		return false;
+//	}
+//	else
+//		return true;
+//}
 
 
 int main()
