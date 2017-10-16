@@ -1,0 +1,5 @@
+C:\Users\user\Documents\PC\ASP_CS_2_1\ASP_CS_2_1\bin\Debug\ASP_CS_2_1.exe.config
+C:\Users\user\Documents\PC\ASP_CS_2_1\ASP_CS_2_1\bin\Debug\ASP_CS_2_1.exe
+C:\Users\user\Documents\PC\ASP_CS_2_1\ASP_CS_2_1\bin\Debug\ASP_CS_2_1.pdb
+C:\Users\user\Documents\PC\ASP_CS_2_1\ASP_CS_2_1\obj\Debug\ASP_CS_2_1.exe
+C:\Users\user\Documents\PC\ASP_CS_2_1\ASP_CS_2_1\obj\Debug\ASP_CS_2_1.pdb
