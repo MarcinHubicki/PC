@@ -1,0 +1,2 @@
+configuration.cs -> metoda seed wywoływana przy uaktualnieniu bazy danych po migracji. Przydatne przy wykonywaniu wielu zmian na bazie 
+-nie ma koniecznosci uzywania UI aplikacji 
