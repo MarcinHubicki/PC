@@ -1,4 +1,20 @@
-﻿  main.cpp
-c:\users\pecet\documents\github\pc\pacman\pacman\main.cpp(10): warning C4101: 'key': unreferenced local variable
-  PacMan.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\PacMan\x64\Debug\PacMan.exe
-  PacMan.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\PacMan\x64\Debug\PacMan.pdb (Full PDB)
+﻿  Silnik.cpp
+c:\users\user\documents\pc\pacman\pacman\silnik.cpp(17): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: see declaration of 'getch'
+c:\users\user\documents\pc\pacman\pacman\silnik.cpp(131): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: see declaration of 'getch'
+c:\users\user\documents\pc\pacman\pacman\silnik.cpp(135): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: see declaration of 'getch'
+c:\users\user\documents\pc\pacman\pacman\silnik.cpp(282): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\user\documents\pc\pacman\pacman\silnik.cpp(282): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(458): note: see declaration of 'kbhit'
+  Przeciwnik.cpp
+  Postac.cpp
+  PacMan.cpp
+  main.cpp
+c:\users\user\documents\pc\pacman\pacman\main.cpp(10): warning C4101: 'key': unreferenced local variable
+  Gra.cpp
+  Generating Code...
+  LINK : C:\Users\user\Documents\PC\PacMan\x64\Debug\PacMan.exe not found or not built by the last incremental link; performing full link
+  PacMan.vcxproj -> C:\Users\user\Documents\PC\PacMan\x64\Debug\PacMan.exe
+  PacMan.vcxproj -> C:\Users\user\Documents\PC\PacMan\x64\Debug\PacMan.pdb (Full PDB)

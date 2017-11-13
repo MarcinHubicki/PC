@@ -14,7 +14,9 @@ namespace ClassicGarage.DAL
         {
         }
 
+        public DbSet<PartsModels> Parts { get; set; }
 
+        public DbSet<RepairModels> Repairs { get; set; }
 
         public DbSet<CarModels> Car { get; set; }
 

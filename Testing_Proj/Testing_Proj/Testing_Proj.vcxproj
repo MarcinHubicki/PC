@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Downloads\do-wyslania\Heap Sort\ASD2_Boberek_HeapSort.cpp" />
+    <ClCompile Include="..\..\..\..\..\hubickim\Downloads\main (1).cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C907CB8A-0372-46CB-83FE-B5CE1070C0B6}</ProjectGuid>

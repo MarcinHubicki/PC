@@ -1,4 +1,3 @@
-﻿  ASD2_Boberek_HeapSort.cpp
-c:\users\pecet\downloads\do-wyslania\heap sort\asd2_boberek_heapsort.cpp(55): warning C4101: 'rozmiar': unreferenced local variable
-  Testing_Proj.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\Testing_Proj\Debug\Testing_Proj.exe
-  Testing_Proj.vcxproj -> C:\Users\PeCet\Documents\GitHub\PC\Testing_Proj\Debug\Testing_Proj.pdb (Full PDB)
+﻿  main (1).cpp
+  Testing_Proj.vcxproj -> C:\Users\user\Documents\PC\Testing_Proj\Debug\Testing_Proj.exe
+  Testing_Proj.vcxproj -> C:\Users\user\Documents\PC\Testing_Proj\Debug\Testing_Proj.pdb (Full PDB)

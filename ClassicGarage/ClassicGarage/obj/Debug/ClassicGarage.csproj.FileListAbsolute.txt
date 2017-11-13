@@ -80,3 +80,7 @@ C:\Users\user\Documents\PC\ClassicGarage\ClassicGarage\bin\Microsoft.Owin.Securi
 C:\Users\user\Documents\PC\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\PC\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.dll
 C:\Users\user\Documents\PC\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.pdb
+C:\Users\user\Documents\PC\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.InitialCreate.resources
+C:\Users\user\Documents\PC\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.csproj.GenerateResource.Cache
+C:\Users\user\Documents\PC\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations._001.resources
+C:\Users\user\Documents\PC\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations._002.resources

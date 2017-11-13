@@ -99,17 +99,6 @@ namespace ASP_CS_1_2
 
 
 
-
-
-          //  Console.WriteLine(P.X + "    " + P.Y);
-
-            //P.SetX(2);
-
-            //P.SetY(3);
-            //Console.WriteLine(P.GetX() + "    " + P.GetY());
-
-
-
             Console.ReadLine();
         }
     }
